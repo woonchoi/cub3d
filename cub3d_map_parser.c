@@ -6,7 +6,7 @@
 /*   By: woonchoi <woonchoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/17 03:37:38 by woonchoi          #+#    #+#             */
-/*   Updated: 2022/06/17 04:01:37 by woonchoi         ###   ########.fr       */
+/*   Updated: 2022/06/17 04:38:41 by woonchoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,14 @@
 #include <string.h>
 #include <stdlib.h>
 #include <stdio.h>
+#include <math.h>
+
+#define TRUE 1
+#define FALSE 0
 
 typedef enum e_validate_bitmask
 {
+	EMPTY_LINE = 0,
 	NO_EXIST = 1,
 	SO_EXIST = 2,
 	WE_EXIST = 4,
@@ -60,10 +65,41 @@ typedef struct s_info
 	t_celling_color	c_color;
 }	t_info;
 
+int	check_line_empty(char *line)
+{
+	int	i;
 
+	i = 0;
+	if (line && line[0] == '0')
+		return (TRUE);
+	return (FALSE);
+}
+
+int	set_map_element(t_info *info, char *line, int mask)
+{
+	if (mask == NO_EXIST)
+		
+}
+
+int	check_valid_line(t_info *info, char *line)
+{
+	if (check_line_empty(line))
+		return (EMPTY_LINE);
+	else if (!strncmp(line, "NO ", 3) && !(info->valid_mask & NO_EXIST))
+		return (NO_EXIST);
+	
+}
 
 int validate_cubfile(t_info *info, char **map)
 {
+	int	i;
+
+	i = 0;
+	while (map && map[i])
+	{
+		info->valid_mask |= check_valid_line(info, map[i]);
+		i++;
+	}
 }
 
 void    init_info(t_info *info)
