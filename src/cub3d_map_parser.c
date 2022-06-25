@@ -349,6 +349,21 @@ void	parse_map(t_info *info, int fd)
 	create_map_with_list(info);
 }
 
+void	free_parse_list(t_info *info)
+{
+	t_plist	*cur;
+	t_plist *temp;
+
+	cur = info->head;
+	while (cur)
+	{
+		safety_free((void **)&cur->line);
+		temp = cur;
+		cur = cur->next;
+		safety_free((void **)&temp);
+	}
+}
+
 void	init_map(t_info *info, char *path)
 {
 	int	fd;
@@ -357,6 +372,7 @@ void	init_map(t_info *info, char *path)
 	if (fd <= 0)
 		open_err(path);
 	parse_map(info, fd);
+	free_parse_list(info);
 }
 
 int	check_valid_filename(char *path)
@@ -383,18 +399,6 @@ void    init_info(t_info *info, char *path)
 {
 	info->head = NULL;
 	init_map(info, path);
-}
-
-void	print_plist(t_info *info)
-{
-	t_plist	*cur;
-
-	cur = info->head;
-	while (cur)
-	{
-		printf("%s\n", cur->line);
-		cur = cur->next;
-	}
 }
 
 void	print_doublearray_map(t_info *info)
@@ -429,6 +433,6 @@ int main(int argc, char **argv)
 
 	check_valid_arg(argc, argv);
 	init_info(&info, argv[1]);
-	print_plist(&info);
 	print_doublearray_map(&info);
+	exit(0);
 }
