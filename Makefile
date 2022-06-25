@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: jasong <jasong@student.42seoul.kr>         +#+  +:+       +#+         #
+#    By: woonchoi <woonchoi@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/02/18 00:17:54 by jasong            #+#    #+#              #
-#    Updated: 2022/06/24 20:49:44 by jasong           ###   ########.fr        #
+#    Updated: 2022/06/25 09:37:13 by woonchoi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,8 +26,9 @@ INC_FLAG = -I$(INC_DIR)
 
 SAN_FLAG = -g3 -fsanitize=address
 
-SRC = $(addprefix $(SRC_DIR), 
-		)
+SRCS = cub3d_map_parser.c
+
+SRC = $(addprefix $(SRC_DIR), $(SRCS))
 OBJ = $(SRC:.c=.o)
 
 all : $(NAME)
