@@ -6,7 +6,7 @@
 #    By: woonchoi <woonchoi@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/02/18 00:17:54 by jasong            #+#    #+#              #
-#    Updated: 2022/06/25 15:19:29 by woonchoi         ###   ########.fr        #
+#    Updated: 2022/06/25 19:41:35 by woonchoi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -48,7 +48,7 @@ all : $(NAME)
 
 $(NAME): $(LIBFT) $(GNL) $(OBJS)
 	@echo $(COLOR_GREEN) "Compile object files completed!" $(COLOR_RESET)
-	@$(CC) $(CFLAG) $(LIBRARIES) $(INCLUDES) $(OBJS) -o $(NAME) -lft -lgnl
+	@$(CC) $(CFLAG) $(LIBRARIES) $(INCLUDES) $(OBJS) -o $(NAME) -lft -lgnl $(SAN_FLAG)
 	@echo $(COLOR_GREEN) "Compile $(NAME) completed!" $(COLOR_RESET)
 
 %.o: %.c

@@ -70,6 +70,7 @@ typedef struct s_info
 	char			**map;
 	int				m_width;
 	int				m_height;
+	int				m_width_offset;
 	t_plist			*head;
 	t_texture		texture;
 	t_floor_color	f_color;
@@ -226,7 +227,7 @@ void	set_map_list(t_info *info, char *line, int *flag)
 	plist_add_back(info, line);
 }
 
-int	get_valid_line_length(char *line)
+void	get_valid_line_length(t_info *info, char *line)
 {
 	int	len;
 	int	i;
@@ -234,51 +235,56 @@ int	get_valid_line_length(char *line)
 	i = 0;
 	len = 0;
 	if (!line || !*line)
-		return (len);
+		return ;
 	while (line[i])
 	{
 		if (line[i] != ' ')
+		{
 			len = i;
+			if (len < info->m_width_offset)
+				info->m_width_offset = len;
+		}
 		i++;
 	}
-	return (len + 1);
+	if (len > info->m_width)
+		info->m_width = len;
 }
 
-void	malloc_map(t_info *info, int width, int height)
+void	malloc_map(t_info *info)
 {
 	int	i;
 	int	j;
 
 	i = 0;
-	info->map = (char **)calloc(height, sizeof(char *));
+	info->m_width -= (info->m_width_offset - 3);
+	info->m_height += 3;
+	info->map = (char **)calloc(info->m_height, sizeof(char *));
 	if (!info->map)
 		print_err(MALLOC_ERR);
-	while (i < height - 1)
+	while (i < info->m_height - 1)
 	{
 		j = 0;
-		info->map[i] = (char *)malloc(width * sizeof(char));
+		info->map[i] = (char *)malloc((info->m_width + 1) * sizeof(char));
 		if (!info->map[i])
 			print_err(MALLOC_ERR);
-		while (j < width)
+		while (j < info->m_width)
 		{
 			info->map[i][j] = ' ';
 			j++;
 		}
+		info->map[i][j] = 0;
 		i++;
 	}
-	info->m_width = width;
-	info->m_height = height - 1;
 }
 
 void	malloc_map_with_size(t_info *info)
 {
-	int 	map_width;
-	int		map_height;
 	int		map_end_flag;
 	t_plist	*cur;
 
-	map_width = 0;
-	map_height = 0;
+	info->m_width = 0;
+	info->m_height = 0;
+	info->m_width_offset = INT_MAX;
 	map_end_flag = FALSE;
 	cur = info->head;
 	while (cur)
@@ -289,13 +295,12 @@ void	malloc_map_with_size(t_info *info)
 			print_err(SPLITTED_MAP);
 		else
 		{
-			map_height++;
-			if (map_width < get_valid_line_length(cur->line))
-				map_width = get_valid_line_length(cur->line);
+			info->m_height++;
+			get_valid_line_length(info, cur->line);
 		}
 		cur = cur->next;
 	}
-	malloc_map(info, map_width + 2, map_height + 3);
+	malloc_map(info);
 }
 
 void	create_map_with_list(t_info *info)
@@ -310,9 +315,9 @@ void	create_map_with_list(t_info *info)
 	while (cur)
 	{
 		j = 1;
-		while (j < info->m_width && cur->line[j - 1])
+		while (j < info->m_width && cur->line[j - 1 + info->m_width_offset])
 		{
-			info->map[i][j] = cur->line[j - 1];
+			info->map[i][j] = cur->line[j - 1 + info->m_width_offset];
 			j++;
 		}
 		cur = cur->next;
