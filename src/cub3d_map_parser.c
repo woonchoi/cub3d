@@ -6,13 +6,16 @@
 #include <stdio.h>
 #include <math.h>
 #include <errno.h>
-#include "../lib/libft/libft.h"
-#include "../lib/get_next_line/get_next_line.h"
+#include "libft.h"
+#include "get_next_line.h"
 
 #define ARG_ERR "Argument error. (Usage : ./cub3d [*.cub])"
 #define NAME_ERR "Not a valid file. (Usage : ./cub3d [*.cub])"
 #define MAP_ERR "Wrong mapfile."
+#define ELEMENT_ERR "Find wrong element."
+#define UNEXPECTED_CHAR "Find unexpected charactor in map."
 #define MALLOC_ERR "Unexpected error while malloc."
+#define SPLITTED_MAP "Map is split with empty space."
 
 typedef enum e_bool
 {
@@ -65,6 +68,8 @@ typedef struct s_plist
 typedef struct s_info
 {
 	char			**map;
+	int				m_width;
+	int				m_height;
 	t_plist			*head;
 	t_texture		texture;
 	t_floor_color	f_color;
@@ -170,7 +175,7 @@ void	set_element(char *line, int *flag)
 	else if (check_arg("C", line, &path))
 		set_color(flag, C_EXIST);
 	else
-		print_err(MAP_ERR);
+		print_err(ELEMENT_ERR);
 }
 //WIP
 
@@ -213,12 +218,106 @@ void	set_map_list(t_info *info, char *line, int *flag)
 	while (i < len)
 	{
 		if (!ft_strchr(" 01NSEW", line[i]))
-			print_err(MAP_ERR);
+			print_err(UNEXPECTED_CHAR);
 		i++;
 	}
 	if (!(*flag & MAP_EXIST))
 		*flag |= MAP_EXIST;
 	plist_add_back(info, line);
+}
+
+int	get_valid_line_length(char *line)
+{
+	int	len;
+	int	i;
+
+	i = 0;
+	len = 0;
+	if (!line || !*line)
+		return (len);
+	while (line[i])
+	{
+		if (line[i] != ' ')
+			len = i;
+		i++;
+	}
+	return (len + 1);
+}
+
+void	malloc_map(t_info *info, int width, int height)
+{
+	int	i;
+	int	j;
+
+	i = 0;
+	info->map = (char **)calloc(height, sizeof(char *));
+	if (!info->map)
+		print_err(MALLOC_ERR);
+	while (i < height - 1)
+	{
+		j = 0;
+		info->map[i] = (char *)malloc(width * sizeof(char));
+		if (!info->map[i])
+			print_err(MALLOC_ERR);
+		while (j < width)
+		{
+			info->map[i][j] = ' ';
+			j++;
+		}
+		i++;
+	}
+	info->m_width = width;
+	info->m_height = height - 1;
+}
+
+void	malloc_map_with_size(t_info *info)
+{
+	int 	map_width;
+	int		map_height;
+	int		map_end_flag;
+	t_plist	*cur;
+
+	map_width = 0;
+	map_height = 0;
+	map_end_flag = FALSE;
+	cur = info->head;
+	while (cur)
+	{
+		if (is_line_only_space(cur->line))
+			map_end_flag = TRUE;
+		else if (!is_line_only_space(cur->line) && map_end_flag == TRUE)
+			print_err(SPLITTED_MAP);
+		else
+		{
+			map_height++;
+			if (map_width < get_valid_line_length(cur->line))
+				map_width = get_valid_line_length(cur->line);
+		}
+		cur = cur->next;
+	}
+	malloc_map(info, map_width + 2, map_height + 3);
+}
+
+void	create_map_with_list(t_info *info)
+{
+	t_plist	*cur;
+	int		i;
+	int		j;
+
+	malloc_map_with_size(info);
+	cur = info->head;
+	i = 1;
+	while (cur)
+	{
+		j = 1;
+		while (j < info->m_width && cur->line[j - 1])
+		{
+			info->map[i][j] = cur->line[j - 1];
+			j++;
+		}
+		cur = cur->next;
+		i++;
+	}
 }
 
 void	parse_map(t_info *info, int fd)
@@ -235,13 +334,14 @@ void	parse_map(t_info *info, int fd)
 			set_map_list(info, line, &flag);
 		safety_free((void **)&line);
 	}
-	if (line)
+	if (line && flag == ALL_EXIST)
 	{
 		set_map_list(info, line, &flag);
 		safety_free((void **)&line);
 	}
 	if (flag != ALL_EXIST)
 		print_err(MAP_ERR);
+	create_map_with_list(info);
 }
 
 void	init_map(t_info *info, char *path)
@@ -285,12 +385,37 @@ void	print_plist(t_info *info)
 	t_plist	*cur;
 
 	cur = info->head;
-	while (cur && cur->next)
+	while (cur)
 	{
 		printf("%s\n", cur->line);
 		cur = cur->next;
 	}
-	printf("%s\n", cur->line);
+}
+
+void	print_doublearray_map(t_info *info)
+{
+	int i;
+
+	i = 0;
+	while (i < info->m_width + 2)
+	{
+		printf("-");
+		i++;
+	}
+	printf("\n");
+	i = 0;
+	while (info->map[i])
+	{
+		printf("|%s|\n", info->map[i]);
+		i++;
+	}
+	i = 0;
+	while (i < info->m_width + 2)
+	{
+		printf("-");
+		i++;
+	}
+	printf("\n");
 }
 
 int main(int argc, char **argv)
@@ -300,4 +425,5 @@ int main(int argc, char **argv)
 	check_valid_arg(argc, argv);
 	init_info(&info, argv[1]);
 	print_plist(&info);
+	print_doublearray_map(&info);
 }
