@@ -16,6 +16,9 @@
 #define UNEXPECTED_CHAR "Find unexpected charactor in map."
 #define MALLOC_ERR "Unexpected error while malloc."
 #define SPLITTED_MAP "Map is split with empty space."
+#define WALL_ERR "Map is not covered by wall."
+#define DOUBLE_PLAYER "Too many player starting point."
+#define NO_PLAYER "Missing player starting point."
 
 typedef enum e_bool
 {
@@ -76,6 +79,34 @@ typedef struct s_info
 	t_floor_color	f_color;
 	t_celling_color	c_color;
 }	t_info;
+
+//util need to delete
+void	print_doublearray_map(t_info *info)
+{
+	int i;
+
+	i = 0;
+	while (i < info->m_width + 2)
+	{
+		printf("-");
+		i++;
+	}
+	printf("\n");
+	i = 0;
+	while (info->map[i])
+	{
+		printf("|%s|\n", info->map[i]);
+		i++;
+	}
+	i = 0;
+	while (i < info->m_width + 2)
+	{
+		printf("-");
+		i++;
+	}
+	printf("\n");
+}
+//util need to delete
 
 void	print_err(char *err_string)
 {
@@ -364,6 +395,196 @@ void	free_parse_list(t_info *info)
 	}
 }
 
+void	set_dxdy(int *dx, int *dy)
+{
+	dx[0] = 0;
+	dx[1] = -1;
+	dx[2] = 1;
+	dx[3] = 0;
+	dy[0] = -1;
+	dy[1] = 0;
+	dy[2] = 0;
+	dy[3] = 1;
+}
+
+int	check_four_direc_char(t_info *info, char *charset, int x, int y)
+{
+	int	dx[4];
+	int	dy[4];
+	int	i;
+
+	set_dxdy(dx, dy);
+	i = 0;
+	while (i < 4)
+	{
+		if (ft_strchr(charset, info->map[y + dy[i]][x + dx[i]]))
+			return (TRUE);
+		i++;
+	}
+	return (FALSE);
+}
+
+void	check_wall(t_info *info)
+{
+	int	y;
+	int	x;
+
+	y = 1;
+	while (y < info->m_height - 1)
+	{
+		x = 1;
+		while (x < info->m_width - 1)
+		{
+			if (ft_strchr("0NSEW", info->map[y][x]))
+			{
+				if (check_four_direc_char(info, " ", x, y))
+					print_err(WALL_ERR);
+			}
+			x++;
+		}
+		y++;
+	}
+}
+
+void	count_player(char s, int *check_player, int *count)
+{
+	if (ft_strchr("NSEW", s) && !*check_player)
+	{
+		*check_player = TRUE;
+		(*count)++;
+	}
+	else if (ft_strchr("NSEW", s) && *check_player)
+		print_err(DOUBLE_PLAYER);
+}
+
+void	count_wall(char s, int *count)
+{
+	if (ft_strchr("01", s))
+		(*count)++;
+}
+
+int	count_element(t_info *info)
+{
+	int	y;
+	int	x;
+	int	check_player;
+	int	count;
+
+	check_player = FALSE;
+	count = 0;
+	y = 1;
+	while (y < info->m_height - 1)
+	{
+		x = 1;
+		while (x < info->m_width - 1)
+		{
+			count_player(info->map[y][x], &check_player, &count);
+			count_wall(info->map[y][x], &count);
+			x++; 
+		}
+		y++;
+	}
+	if (check_player == FALSE)
+		print_err(NO_PLAYER);
+	return (count);
+}
+
+int	**malloc_visited_array(t_info *info)
+{
+	int	i;
+	int	**ret;
+
+	i = 0;
+	ret = (int **)calloc(sizeof(int *), info->m_height + 1);
+	if (!ret)
+		print_err(MALLOC_ERR);
+	while (i < info->m_height)
+	{
+		ret[i] = (int *)calloc(sizeof(int), info->m_width);
+		if (!ret[i])
+			print_err(MALLOC_ERR);
+		i++;
+	}
+	return (ret);
+}
+
+// need refactoring because set_dxdy and using stack with recursive is too heavy
+int	recursive_dfs(t_info *info, int ***visited, int x, int y)
+{
+	int	dx[4];
+	int	dy[4];
+	int	i;
+	int count;
+
+	set_dxdy(dx, dy);
+	i = 0;
+	count = 0;
+	while (i < 4)
+	{
+		if (!(*visited)[y + dy[i]][x + dx[i]])
+		{
+			if (ft_strchr("01NSEW", info->map[y + dy[i]][x + dx[i]]))
+			{
+				(*visited)[y + dy[i]][x + dx[i]] = TRUE;
+				count += 1;
+				count += recursive_dfs(info, visited, x + dx[i], y + dy[i]);
+			}
+		}
+		i++;
+	}
+	return (count);
+}
+
+int	check_splitted_dfs(t_info *info, int x, int y)
+{
+	int	**visited;
+	int	count;
+	int	i;
+
+	visited = malloc_visited_array(info);
+	count = recursive_dfs(info, &visited, x, y);
+	i = 0;
+	while (visited[i])
+	{
+		safety_free((void **)&(visited[i]));
+		i++;
+	}
+	free(visited);
+	return (count);
+}
+
+void	check_splitted(t_info *info, int count)
+{
+	int	x;
+	int	y;
+	int	check;
+
+	y = 1;
+	check = FALSE;
+	while (y < info->m_height - 1 && !check)
+	{
+		x = 1;
+		while (x < info->m_width - 1 && !check)
+		{
+			if (ft_strchr("01NSEW", info->map[y][x]))
+				check = check_splitted_dfs(info, x, y);
+			x++;
+		}
+		y++;
+	}
+	if (check != count)
+		print_err(SPLITTED_MAP);
+}
+
+void	validate_map(t_info *info)
+{
+	int	count;
+
+	check_wall(info);
+	count = count_element(info);
+	check_splitted(info, count);
+}
+
 void	init_map(t_info *info, char *path)
 {
 	int	fd;
@@ -373,6 +594,8 @@ void	init_map(t_info *info, char *path)
 		open_err(path);
 	parse_map(info, fd);
 	free_parse_list(info);
+	print_doublearray_map(info);
+	validate_map(info);
 }
 
 int	check_valid_filename(char *path)
@@ -401,38 +624,11 @@ void    init_info(t_info *info, char *path)
 	init_map(info, path);
 }
 
-void	print_doublearray_map(t_info *info)
-{
-	int i;
-
-	i = 0;
-	while (i < info->m_width + 2)
-	{
-		printf("-");
-		i++;
-	}
-	printf("\n");
-	i = 0;
-	while (info->map[i])
-	{
-		printf("|%s|\n", info->map[i]);
-		i++;
-	}
-	i = 0;
-	while (i < info->m_width + 2)
-	{
-		printf("-");
-		i++;
-	}
-	printf("\n");
-}
-
 int main(int argc, char **argv)
 {
 	t_info	info;
 
 	check_valid_arg(argc, argv);
 	init_info(&info, argv[1]);
-	print_doublearray_map(&info);
 	exit(0);
 }
