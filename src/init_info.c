@@ -1,5 +1,6 @@
 #include "parser.h"
 #include "mlx_logic.h"
+#include <stdio.h>
 
 void	init_map(t_info *info, char *path)
 {
@@ -66,6 +67,7 @@ void	find_player_position(t_info *info)
 				info->rinfo.pos_x = (double)x;
 				info->rinfo.pos_y = (double)y;
 				set_player_direc(info, x, y);
+				return ;
 			}
 			x++;
 		}
@@ -86,5 +88,7 @@ void    init_info(t_info *info, char *path)
 	init_map(info, path);
 	info->screen.width = 1600;
 	info->screen.height = 900;
+	init_raycast_util(info);
 	init_mlx(info);
+	printf("pos_x: %f pos_y: %f dir_x: %f dir_y: %f plane_x: %f plane_y: %f\n", info->rinfo.pos_x, info->rinfo.pos_y, info->rinfo.dir_x, info->rinfo.dir_y, info->rinfo.plane_x, info->rinfo.plane_y);
 }
