@@ -1,28 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstadd_back.c                                   :+:      :+:    :+:   */
+/*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jasong <jasong@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/05/10 22:06:26 by jasong            #+#    #+#             */
-/*   Updated: 2021/05/11 21:47:09 by jasong           ###   ########.fr       */
+/*   Created: 2021/07/05 16:52:32 by jasong            #+#    #+#             */
+/*   Updated: 2021/09/12 19:58:26 by jasong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "ft_printf.h"
 
-void	ft_lstadd_back(t_list **lst, t_list *new)
+int	ft_printf(const char *s, ...)
 {
-	t_list	*last;
+	va_list	ap;
+	int		count;
 
-	if (!lst || !new)
-		return ;
-	if (!(*lst))
-	{
-		*lst = new;
-		return ;
-	}
-	last = ft_lstlast(*lst);
-	last->next = new;
+	va_start(ap, s);
+	count = do_printf(ap, s);
+	return (count);
 }

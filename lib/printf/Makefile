@@ -5,39 +5,37 @@
 #                                                     +:+ +:+         +:+      #
 #    By: jasong <jasong@student.42seoul.kr>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2022/03/04 22:16:53 by jasong            #+#    #+#              #
-#    Updated: 2022/03/04 22:19:50 by jasong           ###   ########.fr        #
+#    Created: 2021/05/15 22:08:35 by jasong            #+#    #+#              #
+#    Updated: 2022/03/04 22:43:06 by jasong           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CC = gcc
-CFLAG = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror -c
 
-NAME = libgnl.a
+LFT_DIR = ../libft/
+LIBFT = libft.a
+NAME = libftprintf.a
 
-SRC = get_next_line.c get_next_line_utils.c
-B_SRC = get_next_line_bonus.c get_next_line_utils_bonus.c
+SOURCES = ft_printf.c do_printf.c process_one.c process_two.c utils.c
+OBJECTS = $(SOURCES:.c=.o)
 
-OBJ = $(SRC:.c=.o)
-B_OBJ = $(B_SRC:.c=.o)
+all: $(NAME)
 
-all : $(NAME)
+%.o: %.c
+	$(CC) $(CFLAGS) $< -o $@
 
-%.o : %.c
-	$(CC) $(CFLAG) -c $< -o $@
+$(NAME): $(OBJECTS)
+	@make -s -C $(LFT_DIR) bonus
+	@cp $(LFT_DIR)$(LIBFT) $(NAME)
+	@ar -cr $@ $^
 
-$(NAME) : $(OBJ)
-	ar -cr $@ $^
+clean:
+	@rm -f $(OBJECTS)
 
-clean :
-	@rm -f $(OBJ) $(B_OBJ)
-
-fclean : clean
+fclean: clean
 	@rm -f $(NAME)
 
-re : fclean all
+re: fclean all
 
-bonus : $(B_OBJ)
-	ar -cr $(NAME) $^
-
-.PHONY : all clean fclean re bonus
+.PHONY: all clean fclean re
