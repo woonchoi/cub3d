@@ -6,7 +6,7 @@
 #    By: woonchoi <woonchoi@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/02/18 00:17:54 by jasong            #+#    #+#              #
-#    Updated: 2022/06/25 19:41:35 by woonchoi         ###   ########.fr        #
+#    Updated: 2022/06/26 16:11:07 by woonchoi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -30,25 +30,54 @@ GNL_DIR = ./lib/get_next_line/
 GNL = $(GNL_DIR)libgnl.a
 
 INC_DIR = ./includes/
-SRC_DIR = ./src/
 MLX_DIR = ./mlx/
+MLX_LINUX_DIR = ./mlxlinux/
+
+SRC_DIR = ./src/
+PARSER_DIR = $(SRC_DIR)parser/
+MLX_LOGIC_DIR = $(SRC_DIR)mlx_logic/
+
 
 LIBRARIES = -L$(LIBFT_DIR) -L$(GNL_DIR)
-INCLUDES = -I$(LIBFT_DIR) -I$(GNL_DIR) -I$(INC_DIR)
+INCLUDES = -I$(LIBFT_DIR) -I$(GNL_DIR) -I$(INC_DIR) -I$(MLX_LINUX_DIR)
 
 MLX_FLAG = -Lmlx -lmlx -framework OpenGL -framework AppKit
-MLX_FLAG_LINUX = -L ./mlx -lmlx -lXext -lX11
+MLX_FLAG_LINUX = -L ./mlxlinux -lmlx -lXext -lX11
 
-SRC = cub3d_map_parser.c
+MAIN_SRCS = init_info.c \
+			main.c \
+			print_err.c \
+			safety_free.c \
+			test_util.c \
 
-SRCS = $(addprefix $(SRC_DIR), $(SRC))
+PARSER_SRCS =	check_arg.c \
+				check_splitted.c \
+				count_element.c \
+				parser_list_util.c \
+				parser_util.c \
+				parser.c \
+				set_color.c \
+				set_element.c\
+				set_texture.c \
+				validate_file.c \
+				validate_map_util.c \
+				validate_map.c \
+
+MLX_LOGIC_SRCS =	exit_hook.c \
+					init_mlx.c \
+
+MAIN_SRCDIR = $(addprefix $(SRC_DIR), $(MAIN_SRCS))
+PARSER_SRCDIR = $(addprefix $(PARSER_DIR), $(PARSER_SRCS))
+MLX_LOGIC_SRCDIR = $(addprefix $(MLX_LOGIC_DIR), $(MLX_LOGIC_SRCS))
+
+SRCS = $(MAIN_SRCDIR) $(PARSER_SRCDIR) $(MLX_LOGIC_SRCDIR)
 OBJS = $(SRCS:.c=.o)
 
 all : $(NAME)
 
-$(NAME): $(LIBFT) $(GNL) $(OBJS)
+$(NAME): $(LIBFT) $(GNL) $(MLX_LINUX) $(OBJS)
 	@echo $(COLOR_GREEN) "Compile object files completed!" $(COLOR_RESET)
-	@$(CC) $(CFLAG) $(LIBRARIES) $(INCLUDES) $(OBJS) -o $(NAME) -lft -lgnl $(SAN_FLAG)
+	@$(CC) $(CFLAG) $(LIBRARIES) $(INCLUDES) $(OBJS) -o $(NAME) -lft -lgnl $(MLX_FLAG_LINUX) $(SAN_FLAG)
 	@echo $(COLOR_GREEN) "Compile $(NAME) completed!" $(COLOR_RESET)
 
 %.o: %.c
@@ -62,6 +91,10 @@ $(LIBFT):
 $(GNL):
 	@$(MAKE) -s -C $(GNL_DIR) all
 	@echo $(COLOR_GREEN) "Compile 'libgnl.a' completed!" $(COLOR_RESET)
+
+$(MLX_LINUX):
+	@$(MAKE) -s -C $(MLX_LINUX_DIR) all
+	@echo $(COLOR_GREEN) "Compile 'libmlx.a' completed!" $(COLOR_RESET)
 
 clean:
 	@$(MAKE) -s -C $(LIBFT_DIR) clean
