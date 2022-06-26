@@ -6,7 +6,7 @@
 #    By: woonchoi <woonchoi@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/02/18 00:17:54 by jasong            #+#    #+#              #
-#    Updated: 2022/06/25 19:41:35 by woonchoi         ###   ########.fr        #
+#    Updated: 2022/06/26 14:53:23 by woonchoi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -32,12 +32,13 @@ GNL = $(GNL_DIR)libgnl.a
 INC_DIR = ./includes/
 SRC_DIR = ./src/
 MLX_DIR = ./mlx/
+MLX_LINUX_DIR = ./mlxlinux/
 
 LIBRARIES = -L$(LIBFT_DIR) -L$(GNL_DIR)
-INCLUDES = -I$(LIBFT_DIR) -I$(GNL_DIR) -I$(INC_DIR)
+INCLUDES = -I$(LIBFT_DIR) -I$(GNL_DIR) -I$(INC_DIR) -I$(MLX_LINUX_DIR)
 
 MLX_FLAG = -Lmlx -lmlx -framework OpenGL -framework AppKit
-MLX_FLAG_LINUX = -L ./mlx -lmlx -lXext -lX11
+MLX_FLAG_LINUX = -L ./mlxlinux -lmlx -lXext -lX11
 
 SRC = cub3d_map_parser.c
 
@@ -46,9 +47,9 @@ OBJS = $(SRCS:.c=.o)
 
 all : $(NAME)
 
-$(NAME): $(LIBFT) $(GNL) $(OBJS)
+$(NAME): $(LIBFT) $(GNL) $(MLX_LINUX) $(OBJS)
 	@echo $(COLOR_GREEN) "Compile object files completed!" $(COLOR_RESET)
-	@$(CC) $(CFLAG) $(LIBRARIES) $(INCLUDES) $(OBJS) -o $(NAME) -lft -lgnl $(SAN_FLAG)
+	@$(CC) $(CFLAG) $(LIBRARIES) $(INCLUDES) $(OBJS) -o $(NAME) -lft -lgnl $(MLX_FLAG_LINUX) $(SAN_FLAG)
 	@echo $(COLOR_GREEN) "Compile $(NAME) completed!" $(COLOR_RESET)
 
 %.o: %.c
@@ -62,6 +63,10 @@ $(LIBFT):
 $(GNL):
 	@$(MAKE) -s -C $(GNL_DIR) all
 	@echo $(COLOR_GREEN) "Compile 'libgnl.a' completed!" $(COLOR_RESET)
+
+$(MLX_LINUX):
+	@$(MAKE) -s -C $(MLX_LINUX_DIR) all
+	@echo $(COLOR_GREEN) "Compile 'libmlx.a' completed!" $(COLOR_RESET)
 
 clean:
 	@$(MAKE) -s -C $(LIBFT_DIR) clean

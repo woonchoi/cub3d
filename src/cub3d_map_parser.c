@@ -8,6 +8,7 @@
 #include <errno.h>
 #include "libft.h"
 #include "get_next_line.h"
+#include "mlx.h"
 
 #define ARG_ERR "Argument error. (Usage : ./cub3d [*.cub])"
 #define NAME_ERR "Not a valid file. (Usage : ./cub3d [*.cub])"
@@ -19,6 +20,8 @@
 #define WALL_ERR "Map is not covered by wall."
 #define DOUBLE_PLAYER "Too many player starting point."
 #define NO_PLAYER "Missing player starting point."
+#define MLX_ERR "Unexpected error when mlx init."
+#define WIN_ERR "Unexpected error when window init."
 
 typedef enum e_bool
 {
@@ -42,10 +45,10 @@ typedef enum e_validate_bitmask
 
 typedef struct s_texture
 {
-	char	*north_texture_path;
-	char	*east_texture_path;
-	char	*west_texture_path;
-	char	*south_texture_path;
+	void	*north_texture;
+	void	*east_texture;
+	void	*west_texture;
+	void	*south_texture;
 }	t_texture;
 
 typedef struct s_floor_color
@@ -78,6 +81,8 @@ typedef struct s_info
 	t_texture		texture;
 	t_floor_color	f_color;
 	t_celling_color	c_color;
+	void			*mlx_ptr;
+	void			*win_ptr;
 }	t_info;
 
 //util need to delete
@@ -618,10 +623,27 @@ void	check_valid_arg(int argc, char **argv)
 		print_err(NAME_ERR);
 }
 
+void	init_mlx(t_info *info)
+{
+	info->mlx_ptr = mlx_init();
+	if (!info->mlx_ptr)
+		print_err(MLX_ERR);
+	info->win_ptr = mlx_new_window(info->mlx_ptr, 1600, 900, "cub3d");
+	if (!info->win_ptr)
+		print_err(WIN_ERR);
+}
+
 void    init_info(t_info *info, char *path)
 {
 	info->head = NULL;
 	init_map(info, path);
+	init_mlx(info);
+}
+
+int	exit_hook(t_info *info)
+{
+	mlx_destroy_window(info->mlx_ptr, info->win_ptr);
+	exit(0);
 }
 
 int main(int argc, char **argv)
@@ -630,5 +652,8 @@ int main(int argc, char **argv)
 
 	check_valid_arg(argc, argv);
 	init_info(&info, argv[1]);
+	mlx_hook(info.win_ptr, 17, 0, &exit_hook, &info);
+	mlx_loop(info.mlx_ptr);
 	exit(0);
 }
+
