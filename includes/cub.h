@@ -5,6 +5,7 @@
 # include "struct.h"
 # include "constant.h"
 # include "cub_util.h"
+# include <stdlib.h> 
 
 void	check_valid_arg(int argc, char **argv);
 void    init_info(t_info *info, char *path);

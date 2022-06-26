@@ -29,6 +29,24 @@ typedef struct s_plist
 	struct s_plist	*next;
 }	t_plist;
 
+typedef struct s_raycast_util
+{
+	double	pos_x;
+	double	pos_y;
+	double	dir_x;
+	double	dir_y;
+	double	plane_x;
+	double	plane_y;
+	double	move_speed;
+	double	rotate_speed;
+}	t_raycast_util;
+
+typedef struct s_screen_size
+{
+	int	width;
+	int	height;
+}	t_screen_size;
+
 typedef struct s_info
 {
 	char			**map;
@@ -39,6 +57,8 @@ typedef struct s_info
 	t_texture		texture;
 	t_floor_color	f_color;
 	t_celling_color	c_color;
+	t_raycast_util	rinfo;
+	t_screen_size	screen;
 	void			*mlx_ptr;
 	void			*win_ptr;
 }	t_info;
