@@ -14,6 +14,7 @@
 # define MLX_ERR "Unexpected error when mlx init."
 # define WIN_ERR "Unexpected error when window init."
 # define TEXTURE_ERR "Unexpected error when set texture."
+# define COLOR_ERR "Wrong color format detected."
 # define WALL_IMAGE_WIDTH 51
 # define WALL_IMAGE_HEIGHT 51
 

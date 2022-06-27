@@ -16,9 +16,9 @@ void	set_element(t_info *info, char *line, int *flag)
 	else if (check_arg("EA", line, &path))
 		set_texture(info, path, flag, EA_EXIST);
 	else if (check_arg("F", line, &path))
-		set_color(flag, F_EXIST);
+		set_color(info, path, flag, F_EXIST);
 	else if (check_arg("C", line, &path))
-		set_color(flag, C_EXIST);
+		set_color(info, path, flag, C_EXIST);
 	else
 		print_err(ELEMENT_ERR);
 }
