@@ -3,25 +3,11 @@
 
 typedef struct s_texture
 {
-	void	*north_texture;
-	void	*east_texture;
-	void	*west_texture;
-	void	*south_texture;
+	void	*north;
+	void	*east;
+	void	*west;
+	void	*south;
 }	t_texture;
-
-typedef struct s_floor_color
-{
-	int	color_r;
-	int	color_g;
-	int	color_b;
-}	t_floor_color;
-
-typedef struct s_celling_color
-{
-	int	color_r;
-	int	color_g;
-	int	color_b;
-}	t_celling_color;
 
 typedef struct s_plist
 {
@@ -55,8 +41,8 @@ typedef struct s_info
 	int				m_width_offset;
 	t_plist			*head;
 	t_texture		texture;
-	t_floor_color	f_color;
-	t_celling_color	c_color;
+	int				f_color;
+	int				c_color;
 	t_raycast_util	rinfo;
 	t_screen_size	screen;
 	void			*mlx_ptr;

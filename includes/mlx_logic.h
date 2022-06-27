@@ -8,5 +8,6 @@
 # include <stdlib.h>
 
 void	init_mlx(t_info *info);
+void	init_win(t_info *info);
 
 #endif

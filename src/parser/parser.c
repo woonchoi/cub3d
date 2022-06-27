@@ -107,7 +107,7 @@ void	parse_map(t_info *info, int fd)
 	while (get_next_line(fd, &line) == 1)
 	{
 		if (flag < NEED_MAP)
-			set_element(line, &flag);
+			set_element(info, line, &flag);
 		else
 			set_map_list(info, line, &flag);
 		safety_free((void **)&line);
