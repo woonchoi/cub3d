@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: woonchoi <woonchoi@student.42.fr>          +#+  +:+       +#+         #
+#    By: jasong <jasong@student.42seoul.kr>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/02/18 00:17:54 by jasong            #+#    #+#              #
-#    Updated: 2022/06/26 16:11:07 by woonchoi         ###   ########.fr        #
+#    Updated: 2022/06/27 14:09:07 by jasong           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -81,8 +81,8 @@ $(NAME): $(LIBFT) $(GNL) $(MLX_LINUX) $(OBJS)
 	@echo $(COLOR_GREEN) "Compile $(NAME) completed!" $(COLOR_RESET)
 
 %.o: %.c
-	@echo $(COLOR_GREEN) "Compiling...\t" $(COLOR_RESET) $(COLOR_YELLOW) $< $(COLOR_BLUE) $(LINE_CLEAR)
-	@$(CC) $(CFLAG) -c $(INCLUDES) $< -o $@
+	@echo $(COLOR_GREEN) "Compiling...\t" $(COLOR_RESET) $(COLOR_YELLOW) $< $(COLOR_BLUE) $(LINE_CLEAR) $(COLOR_RESET)
+	@$(CC) $(CFLAG) -c $(INCLUDES) -I$(MLX_DIR) $< -o $@
 
 $(LIBFT):
 	@$(MAKE) -s -C $(LIBFT_DIR) all
@@ -105,9 +105,18 @@ clean:
 fclean:
 	@$(MAKE) -s -C $(LIBFT_DIR) fclean
 	@$(MAKE) -s -C $(GNL_DIR) fclean
+	@$(MAKE) -s -C $(MLX_DIR) clean
 	@rm -rf $(OBJS)
 	@rm -rf $(NAME)
 	@echo $(COLOR_RED) "Program '$(NAME)' has removed!" $(COLOR_RESET)
+
+jasong: $(LIBFT) $(OBJS)
+	@$(MAKE) -s -C $(GNL_DIR) all
+	@echo $(COLOR_GREEN) "Compile 'libgnl.a' completed!" $(COLOR_RESET)
+	@$(MAKE) -s -C $(MLX_DIR) all
+	@echo $(COLOR_GREEN) "Compile 'libmlx.a' completed!" $(COLOR_RESET)
+	@$(CC) $(CFLAG) $(LIBRARIES) -I$(LIBFT_DIR) -I$(GNL_DIR) -I$(INC_DIR) -I$(MLX_DIR) $(OBJS) -o $(NAME) -lft -lgnl $(MLX_FLAG) $(SAN_FLAG)
+	@echo $(COLOR_GREEN) "Compile $(NAME) completed!" $(COLOR_RESET)
 
 re : fclean all
 
