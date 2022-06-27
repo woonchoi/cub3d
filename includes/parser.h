@@ -1,6 +1,8 @@
 #ifndef PARSER_H
 # define PARSER_H
 
+# include <stdio.h>
+
 # include <fcntl.h>
 # include <stdlib.h>
 # include "libft.h"
@@ -31,9 +33,9 @@ int		is_line_only_space(char *line);
 
 void	set_color(int *flag, int now_flag);
 
-void	set_texture(int *flag, int now_flag);
+void	set_texture(t_info *info, char *path, int *flag, int now_flag);
 
-void	set_element(char *line, int *flag);
+void	set_element(t_info *info, char *line, int *flag);
 
 int		check_valid_filename(char *path);
 

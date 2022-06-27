@@ -3,10 +3,10 @@
 
 typedef struct s_texture
 {
-	void	*north_texture;
-	void	*east_texture;
-	void	*west_texture;
-	void	*south_texture;
+	void	*north;
+	void	*east;
+	void	*west;
+	void	*south;
 }	t_texture;
 
 typedef struct s_floor_color

@@ -1,6 +1,6 @@
 #include "parser.h"
 
-void	set_element(char *line, int *flag)
+void	set_element(t_info *info, char *line, int *flag)
 {
 	char	*path;
 
@@ -8,13 +8,13 @@ void	set_element(char *line, int *flag)
 	if (is_line_only_space(line))
 		return ;
 	else if (check_arg("NO", line, &path))
-		set_texture(flag, NO_EXIST);
+		set_texture(info, path, flag, NO_EXIST);
 	else if (check_arg("SO", line, &path))
-		set_texture(flag, SO_EXIST);
+		set_texture(info, path, flag, SO_EXIST);
 	else if (check_arg("WE", line, &path))
-		set_texture(flag, WE_EXIST);
+		set_texture(info, path, flag, WE_EXIST);
 	else if (check_arg("EA", line, &path))
-		set_texture(flag, EA_EXIST);
+		set_texture(info, path, flag, EA_EXIST);
 	else if (check_arg("F", line, &path))
 		set_color(flag, F_EXIST);
 	else if (check_arg("C", line, &path))
