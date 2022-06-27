@@ -9,6 +9,17 @@ typedef struct s_texture
 	void	*south;
 }	t_texture;
 
+typedef struct s_img
+{
+	void	*img;
+	int		*data;
+	int		size_l;
+	int		bpp;
+	int		endian;
+	int		img_width;
+	int		img_height;
+}	t_img;
+
 typedef struct s_plist
 {
 	char			*line;
@@ -45,6 +56,8 @@ typedef struct s_info
 	int				c_color;
 	t_raycast_util	rinfo;
 	t_screen_size	screen;
+	t_img			img;
+	int				**buffer;
 	void			*mlx_ptr;
 	void			*win_ptr;
 }	t_info;
