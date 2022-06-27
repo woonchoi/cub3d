@@ -10,7 +10,9 @@ int	check_arg(char *str1, char *str2, char **ret)
 			return (FALSE);
 	}
 	str2 += ft_strlen(str1);
-	if (str2)
+	if (*str2 != ' ')
+		return (FALSE);
+	if (*str2)
 	{
 		while (*str2 == ' ')
 			str2++;
