@@ -11,7 +11,7 @@ void	count_player(char s, int *check_player, int *count)
 		print_err(DOUBLE_PLAYER);
 }
 
-void	count_wall(char s, int *count)
+void	count_wall_floor(char s, int *count)
 {
 	if (ft_strchr("01", s))
 		(*count)++;
@@ -33,7 +33,7 @@ int	count_element(t_info *info)
 		while (x < info->m_width - 1)
 		{
 			count_player(info->map[y][x], &check_player, &count);
-			count_wall(info->map[y][x], &count);
+			count_wall_floor(info->map[y][x], &count);
 			x++; 
 		}
 		y++;

@@ -20,7 +20,7 @@ int		check_splitted_dfs(t_info *info, int x, int y);
 void	check_splitted(t_info *info, int count);
 
 void	count_player(char s, int *check_player, int *count);
-void	count_wall(char s, int *count);
+void	count_wall_floor(char s, int *count);
 int		count_element(t_info *info);
 
 t_plist	*create_plist_node(char *line);
