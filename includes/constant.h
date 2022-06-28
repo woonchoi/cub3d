@@ -17,6 +17,8 @@
 # define COLOR_ERR "Wrong color format detected."
 # define WALL_IMAGE_WIDTH 51
 # define WALL_IMAGE_HEIGHT 51
+# define SCREEN_WIDTH 1920
+# define SCREEN_HEIGHT 1080
 
 typedef enum e_bool
 {

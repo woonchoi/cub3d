@@ -32,22 +32,22 @@ void	set_player_direc(t_info *info, int x, int y)
 	if (info->map[y][x] == 'N')
 	{
 		set_rinfo_dir(info, 0.0, -1.0);
-		set_rinfo_plane(info, 0.66, 0.0);
+		set_rinfo_plane(info, 0.80, 0.0);
 	}
 	else if (info->map[y][x] == 'S')
 	{
 		set_rinfo_dir(info, 0.0, 1.0);
-		set_rinfo_plane(info, -0.66, 0.0);
+		set_rinfo_plane(info, -0.80, 0.0);
 	}
 	else if (info->map[y][x] == 'E')
 	{
 		set_rinfo_dir(info, -1.0, 0.0);
-		set_rinfo_plane(info, 0.0, -0.66);
+		set_rinfo_plane(info, 0.0, -0.80);
 	}
 	else if (info->map[y][x] == 'W')
 	{
 		set_rinfo_dir(info, 1.0, 0.0);
-		set_rinfo_plane(info, 0.0, 0.66);
+		set_rinfo_plane(info, 0.0, 0.80);
 	}
 }
 
@@ -125,8 +125,8 @@ void	init_dir_texture(t_info *info)
 void    init_info(t_info *info, char *path)
 {
 	info->head = NULL;
-	info->screen.width = 1600;
-	info->screen.height = 900;
+	info->screen.width = SCREEN_WIDTH;
+	info->screen.height = SCREEN_HEIGHT;
 	info->mlx_ptr = mlx_init();
 	if (!info->mlx_ptr)
 		print_err(MLX_ERR);
