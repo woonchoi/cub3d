@@ -39,12 +39,8 @@ int	**get_correct_texture_with_flag(t_info *info, int now_flag)
 void	set_texture(t_info *info, char *path, int *flag, int now_flag)
 {
 	int		**texture;
-	int		img_width;
-	int		img_height;
 	t_img	img;
 
-	img_width = WALL_IMAGE_WIDTH;
-	img_height = WALL_IMAGE_HEIGHT;
 	if (*flag & now_flag)
 		print_err(MAP_ERR);
 	*flag |= now_flag;

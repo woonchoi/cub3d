@@ -199,6 +199,7 @@ int	render_frame(t_info *info)
 	draw_floor(info);
 	draw_celling(info);
 	raycasting(info);
+	key_update(info, &info->rinfo);
 	mlx_put_image_to_window(info->mlx_ptr, info->win_ptr, info->img.img, 0, 0);
 	return (0);
 }
@@ -210,6 +211,8 @@ int main(int argc, char **argv)
 	check_valid_arg(argc, argv);
 	init_info(&info, argv[1]);
 	mlx_hook(info.win_ptr, 17, 0, &exit_hook, &info);
+	mlx_hook(info.win_ptr, 2, 0, key_press, &info);
+	mlx_hook(info.win_ptr, 3, 0, key_release, &info);
 	mlx_loop_hook(info.mlx_ptr, render_frame, &info);
 	mlx_loop(info.mlx_ptr);
 	exit(0);

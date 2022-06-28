@@ -17,14 +17,16 @@
 # define COLOR_ERR "Wrong color format detected."
 # define WALL_IMAGE_WIDTH 51
 # define WALL_IMAGE_HEIGHT 51
+# define MOVE_SPEED 0.05
+# define ROTATE_SPEED 0.05
 
-typedef enum e_bool
+typedef enum	e_bool
 {
 	FALSE = 0,
 	TRUE = 1,
 }	t_bool;
 
-typedef enum e_validate_bitmask
+typedef enum	e_validate_bitmask
 {
 	EMPTY_LINE = 0,
 	NO_EXIST = 1,
@@ -37,5 +39,14 @@ typedef enum e_validate_bitmask
 	MAP_EXIST = 64,
 	ALL_EXIST = 127,
 }	t_validate_bitmask;
+
+typedef enum	e_key
+{
+	KEY_A = 0,
+	KEY_S = 1,
+	KEY_D = 2,
+	KEY_W = 13,
+	KEY_ESC = 53,
+}	t_key;
 
 #endif

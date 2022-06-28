@@ -11,5 +11,8 @@
 void	check_valid_arg(int argc, char **argv);
 void    init_info(t_info *info, char *path);
 int		exit_hook(t_info *info);
+int		key_press(int key, t_info *info);
+int		key_release(int key, t_info *info);
+void	key_update(t_info *info, t_raycast_util *r);
 
 #endif
