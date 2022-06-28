@@ -5,6 +5,7 @@
 # include "struct.h"
 # include "constant.h"
 # include "cub_util.h"
+# include <math.h>
 # include <stdlib.h> 
 
 void	check_valid_arg(int argc, char **argv);

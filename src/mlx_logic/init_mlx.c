@@ -1,11 +1,5 @@
 #include "mlx_logic.h"
-
-void	init_mlx(t_info *info)
-{
-	info->mlx_ptr = mlx_init();
-	if (!info->mlx_ptr)
-		print_err(MLX_ERR);
-}
+#include <stdio.h>
 
 void	init_win(t_info *info)
 {

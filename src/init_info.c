@@ -64,9 +64,10 @@ void	find_player_position(t_info *info)
 		{
 			if (ft_strchr("NSEW", info->map[y][x]))
 			{
-				info->rinfo.pos_x = (double)x;
-				info->rinfo.pos_y = (double)y;
+				info->rinfo.pos_x = (double)x + 0.5;
+				info->rinfo.pos_y = (double)y + 0.5;
 				set_player_direc(info, x, y);
+				info->map[y][x] = 0;
 				return ;
 			}
 			x++;
@@ -82,14 +83,56 @@ void	init_raycast_util(t_info *info)
 	info->rinfo.rotate_speed = 0.05;
 }
 
+void	init_screen_img(t_info *info)
+{
+	int	width;
+	int	height;
+
+	width = info->screen.width;
+	height = info->screen.height;
+	info->img.img = mlx_new_image(info->mlx_ptr, width, height);
+	info->img.data = (int *)mlx_get_data_addr(info->img.img,
+		&info->img.bpp, &info->img.size_l, &info->img.endian);
+}
+
+int	*malloc_texture(void)
+{
+	int	*texture;
+	int	texture_size;
+	int	i;
+
+	texture_size = WALL_IMAGE_WIDTH * WALL_IMAGE_HEIGHT;
+	texture =  (int *)malloc(sizeof(int) * texture_size);
+	if (!texture)
+		print_err(MALLOC_ERR);
+	i = 0;
+	while (i < texture_size)
+	{
+		texture[i] = 0;
+		i++;
+	}
+	return (texture);
+}
+
+void	init_dir_texture(t_info *info)
+{
+	info->texture.north = malloc_texture();
+	info->texture.east = malloc_texture();
+	info->texture.west = malloc_texture();
+	info->texture.south = malloc_texture();
+}
+
 void    init_info(t_info *info, char *path)
 {
 	info->head = NULL;
 	info->screen.width = 1600;
 	info->screen.height = 900;
-	init_mlx(info);
+	info->mlx_ptr = mlx_init();
+	if (!info->mlx_ptr)
+		print_err(MLX_ERR);
+	init_dir_texture(info);
 	init_map(info, path);
 	init_raycast_util(info);
-	printf("pos_x: %f pos_y: %f dir_x: %f dir_y: %f plane_x: %f plane_y: %f\n", info->rinfo.pos_x, info->rinfo.pos_y, info->rinfo.dir_x, info->rinfo.dir_y, info->rinfo.plane_x, info->rinfo.plane_y);
 	init_win(info);
+	init_screen_img(info);
 }

@@ -3,11 +3,48 @@
 
 typedef struct s_texture
 {
-	void	*north;
-	void	*east;
-	void	*west;
-	void	*south;
+	int	*north;
+	int	*east;
+	int	*west;
+	int	*south;
 }	t_texture;
+
+typedef struct s_img
+{
+	void	*img;
+	int		*data;
+	int		size_l;
+	int		bpp;
+	int		endian;
+	int		img_width;
+	int		img_height;
+}	t_img;
+
+typedef struct s_raycast
+{
+	double	camera_x;
+	double	raydir_x;
+	double	raydir_y;
+	int		map_x;
+	int		map_y;
+	double	side_dist_x;
+	double	side_dist_y;
+	double	delta_dist_x;
+	double	delta_dist_y;
+	double	perp_wall_dist;
+	int		step_x;
+	int		step_y;
+	int		hit;
+	int		side;
+	int		line_height;
+	int		draw_start;
+	int		draw_end;
+	double	wall_x;
+	int		texture_x;
+	double	step;
+	double	texture_pos;
+	int		texture_y;
+}	t_raycast;
 
 typedef struct s_plist
 {
@@ -45,6 +82,7 @@ typedef struct s_info
 	int				c_color;
 	t_raycast_util	rinfo;
 	t_screen_size	screen;
+	t_img			img;
 	void			*mlx_ptr;
 	void			*win_ptr;
 }	t_info;
