@@ -29,17 +29,17 @@ void	key_d_press(t_raycast_util *r)
 
 void	key_w_press(t_info *info, t_raycast_util *r)
 {
-	if (!info->map[(int)r->pos_y][(int)(r->pos_x + r->dir_x * MOVE_SPEED)])
+	if (info->map[(int)r->pos_y][(int)(r->pos_x + r->dir_x * MOVE_SPEED)] != '1')
 		r->pos_x += r->dir_x * MOVE_SPEED;
-	if (!info->map[(int)(r->pos_y + r->dir_y * MOVE_SPEED)][(int)r->pos_x])
+	if (info->map[(int)(r->pos_y + r->dir_y * MOVE_SPEED)][(int)r->pos_x] != '1')
 		r->pos_y += r->dir_y * MOVE_SPEED;
 }
 
 void	key_s_press(t_info *info, t_raycast_util *r)
 {
-	if (!info->map[(int)r->pos_y][(int)(r->pos_x - r->dir_x * MOVE_SPEED)])
+	if (info->map[(int)r->pos_y][(int)(r->pos_x - r->dir_x * MOVE_SPEED)] != '1')
 		r->pos_x -= r->dir_x * MOVE_SPEED;
-	if (!info->map[(int)(r->pos_y - r->dir_y * MOVE_SPEED)][(int)r->pos_x])
+	if (info->map[(int)(r->pos_y - r->dir_y * MOVE_SPEED)][(int)r->pos_x] != '1')
 		r->pos_y -= r->dir_y * MOVE_SPEED;
 }
 
