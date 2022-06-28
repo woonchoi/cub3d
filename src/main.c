@@ -127,17 +127,17 @@ void	find_texture_x(t_raycast *val)
 {
 	val->texture_x = (int)(val->wall_x * (double)WALL_IMAGE_WIDTH);
 	if (val->side == 0 && val->raydir_x > 0)
-		val->texture_x = WALL_IMAGE_WIDTH - val->texture_x - 1.0;
+		val->texture_x = WALL_IMAGE_WIDTH - val->texture_x - 1;
 	if (val->side == 1 && val->raydir_y < 0)
-		val->texture_x = WALL_IMAGE_WIDTH - val->texture_x - 1.0;
+		val->texture_x = WALL_IMAGE_WIDTH - val->texture_x - 1;
 }
 
 void	calculate_texture_pixel_step(t_info *info, t_raycast *val)
 {
-	val->step = 1.0 * (double)WALL_IMAGE_HEIGHT / (double)val->line_height;
-	val->texture_pos = ((double)val->draw_start
-		- (double)info->screen.height / 2.0
-		+ (double)val->line_height / 2.0) * val->step;
+	val->step = 1.0 * WALL_IMAGE_HEIGHT / val->line_height;
+	val->texture_pos = (val->draw_start
+		- info->screen.height / 2
+		+ val->line_height / 2) * val->step;
 }
 
 int	*get_correct_texture(t_info *info, t_raycast *val)
@@ -161,12 +161,14 @@ void	draw_texture_to_image(t_info *info, t_raycast *val, int x)
 
 	y = val->draw_start;
 	texture = get_correct_texture(info, val);
+	if (texture == NULL)
+		print_err(TEXTURE_ERR);
 	while (y < val->draw_end)
 	{
-		val->texture_y = (int)val->texture_pos & (WALL_IMAGE_HEIGHT - 1);
+		val->texture_y = (int)val->texture_pos & 63;
 		val->texture_pos += val->step;
 		color = texture[WALL_IMAGE_HEIGHT * val->texture_y + val->texture_x];
-		info->img.data[y * info->img.size_l + x] = color;
+		info->img.data[y * info->screen.width + x] = color;
 		y++;
 	}
 }
@@ -177,7 +179,7 @@ void	raycasting(t_info *info)
 	t_raycast	ray_val;
 
 	x = 0;
-	while (x < info->screen.width * 2)
+	while (x < info->screen.width)
 	{
 		init_ray_val(info, &ray_val, x);
 		set_ray_val_with_dir(info, &ray_val);
