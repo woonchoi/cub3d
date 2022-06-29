@@ -167,7 +167,7 @@ void	draw_texture_to_image(t_info *info, t_raycast *val, int x)
 	{
 		val->texture_y = (int)val->texture_pos & 63;
 		val->texture_pos += val->step;
-		color = texture[WALL_IMAGE_HEIGHT * val->texture_y + val->texture_x];
+		color = texture[WALL_IMAGE_HEIGHT * (val->texture_y + 1) - (val->texture_x + 1)];
 		info->img.data[y * info->screen.width + x] = color;
 		y++;
 	}
@@ -196,6 +196,7 @@ void	raycasting(t_info *info)
 
 int	render_frame(t_info *info)
 {
+	key_update(info, &info->rinfo);
 	draw_floor(info);
 	draw_celling(info);
 	raycasting(info);
@@ -210,7 +211,9 @@ int main(int argc, char **argv)
 	check_valid_arg(argc, argv);
 	init_info(&info, argv[1]);
 	mlx_hook(info.win_ptr, 17, 0, &exit_hook, &info);
-	mlx_loop_hook(info.mlx_ptr, render_frame, &info);
+	mlx_hook(info.win_ptr, 2, 1L<<0, &key_press, &info);
+	mlx_hook(info.win_ptr, 3, 1L<<1, &key_release, &info);
+	mlx_loop_hook(info.mlx_ptr, &render_frame, &info);
 	mlx_loop(info.mlx_ptr);
 	exit(0);
 }

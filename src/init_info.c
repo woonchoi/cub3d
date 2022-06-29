@@ -67,7 +67,7 @@ void	find_player_position(t_info *info)
 				info->rinfo.pos_x = (double)x + 0.5;
 				info->rinfo.pos_y = (double)y + 0.5;
 				set_player_direc(info, x, y);
-				info->map[y][x] = 0;
+				info->map[y][x] = '0';
 				return ;
 			}
 			x++;
@@ -122,6 +122,14 @@ void	init_dir_texture(t_info *info)
 	info->texture.south = malloc_texture();
 }
 
+void	init_keys(t_info *info)
+{
+	info->key.a = 0;
+	info->key.s = 0;
+	info->key.d = 0;
+	info->key.w = 0;
+}
+
 void    init_info(t_info *info, char *path)
 {
 	info->head = NULL;
@@ -135,4 +143,5 @@ void    init_info(t_info *info, char *path)
 	init_raycast_util(info);
 	init_win(info);
 	init_screen_img(info);
+	init_keys(info);
 }

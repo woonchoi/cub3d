@@ -70,6 +70,14 @@ typedef struct s_screen_size
 	int	height;
 }	t_screen_size;
 
+typedef struct	s_keys
+{
+	int	a;
+	int	s;
+	int	d;
+	int	w;
+}	t_keys;
+
 typedef struct s_info
 {
 	char			**map;
@@ -85,6 +93,7 @@ typedef struct s_info
 	t_img			img;
 	void			*mlx_ptr;
 	void			*win_ptr;
+	t_keys			key;
 }	t_info;
 
 #endif
