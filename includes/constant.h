@@ -42,11 +42,11 @@ typedef enum	e_validate_bitmask
 
 typedef enum	e_key
 {
-	KEY_A = 0,
-	KEY_S = 1,
-	KEY_D = 2,
-	KEY_W = 13,
-	KEY_ESC = 53,
+	KEY_A = 97,
+	KEY_S = 115,
+	KEY_D = 100,
+	KEY_W = 119,
+	KEY_ESC = 65307,
 }	t_key;
 
 #endif

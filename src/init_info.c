@@ -67,7 +67,7 @@ void	find_player_position(t_info *info)
 				info->rinfo.pos_x = (double)x + 0.5;
 				info->rinfo.pos_y = (double)y + 0.5;
 				set_player_direc(info, x, y);
-				info->map[y][x] = 0;
+				info->map[y][x] = '0';
 				return ;
 			}
 			x++;

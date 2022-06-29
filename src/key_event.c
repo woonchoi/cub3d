@@ -1,27 +1,27 @@
 #include "cub.h"
 #include <stdio.h>
 
-void	key_a_press(t_raycast_util *r)
-{
-	double	cur_dir_x;
-	double	cur_plane_x;
-
-	cur_dir_x = r->dir_x;
-	r->dir_x = r->dir_x * cos(ROTATE_SPEED) - r->dir_y * sin(ROTATE_SPEED);
-	r->dir_y = cur_dir_x * sin(ROTATE_SPEED) + r->dir_x * cos(ROTATE_SPEED);
-	cur_plane_x = r->plane_x;
-	r->plane_x = r->plane_x * cos(ROTATE_SPEED) - r->plane_y * sin(ROTATE_SPEED);
-	r->plane_y = cur_plane_x * sin(ROTATE_SPEED) + r->plane_y * cos(ROTATE_SPEED);
-}
-
 void	key_d_press(t_raycast_util *r)
 {
 	double	cur_dir_x;
 	double	cur_plane_x;
 
 	cur_dir_x = r->dir_x;
+	r->dir_x = r->dir_x * cos(ROTATE_SPEED) - r->dir_y * sin(ROTATE_SPEED);
+	r->dir_y = cur_dir_x * sin(ROTATE_SPEED) + r->dir_y * cos(ROTATE_SPEED);
+	cur_plane_x = r->plane_x;
+	r->plane_x = r->plane_x * cos(ROTATE_SPEED) - r->plane_y * sin(ROTATE_SPEED);
+	r->plane_y = cur_plane_x * sin(ROTATE_SPEED) + r->plane_y * cos(ROTATE_SPEED);
+}
+
+void	key_a_press(t_raycast_util *r)
+{
+	double	cur_dir_x;
+	double	cur_plane_x;
+
+	cur_dir_x = r->dir_x;
 	r->dir_x = r->dir_x * cos(-ROTATE_SPEED) - r->dir_y * sin(-ROTATE_SPEED);
-	r->dir_y = cur_dir_x * sin(-ROTATE_SPEED) + r->dir_x * cos(-ROTATE_SPEED);
+	r->dir_y = cur_dir_x * sin(-ROTATE_SPEED) + r->dir_y * cos(-ROTATE_SPEED);
 	cur_plane_x = r->plane_x;
 	r->plane_x = r->plane_x * cos(-ROTATE_SPEED) - r->plane_y * sin(-ROTATE_SPEED);
 	r->plane_y = cur_plane_x * sin(-ROTATE_SPEED) + r->plane_y * cos(-ROTATE_SPEED);
@@ -45,12 +45,13 @@ void	key_s_press(t_info *info, t_raycast_util *r)
 
 int	key_press(int key, t_info *info)
 {
+	printf("keycode : %d\n", key);
 	if (key == KEY_ESC)
 		exit_hook(info);
 	if (key == KEY_A)
 		info->key.a = 1;
 	if (key == KEY_D)
-		info->key.s = 1;
+		info->key.d = 1;
 	if (key == KEY_W)
 		info->key.w = 1;
 	if (key == KEY_S)
@@ -63,7 +64,7 @@ int	key_release(int key, t_info *info)
 	if (key == KEY_A)
 		info->key.a = 0;
 	if (key == KEY_D)
-		info->key.s = 0;
+		info->key.d = 0;
 	if (key == KEY_W)
 		info->key.w = 0;
 	if (key == KEY_S)
