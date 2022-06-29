@@ -167,7 +167,7 @@ void	draw_texture_to_image(t_info *info, t_raycast *val, int x)
 	{
 		val->texture_y = (int)val->texture_pos & 63;
 		val->texture_pos += val->step;
-		color = texture[WALL_IMAGE_HEIGHT * val->texture_y + val->texture_x];
+		color = texture[WALL_IMAGE_HEIGHT * (val->texture_y + 1) - (val->texture_x + 1)];
 		info->img.data[y * info->screen.width + x] = color;
 		y++;
 	}
