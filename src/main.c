@@ -1,32 +1,17 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: jasong <jasong@student.42seoul.kr>         +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/06/30 13:53:06 by jasong            #+#    #+#             */
+/*   Updated: 2022/06/30 14:41:34 by jasong           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "cub.h"
 #include <stdio.h>
-
-void	fill_img(t_img img, int color, int start, int stop)
-{
-	int	*bytes;
-	int	*end;
-
-	end = (void *)img.data + stop * img.size_l;
-	bytes = (int *)((void *)img.data + start * img.size_l);
-	while (bytes < end)
-		*bytes++ = color;
-}
-
-void	draw_floor(t_info *info)
-{
-	int	horizon;
-
-	horizon = fmax(0, info->screen.height / 2);
-	fill_img(info->img, info->f_color, horizon, info->screen.height);
-}
-
-void	draw_celling(t_info *info)
-{
-	int	horizon;
-
-	horizon = fmax(0, info->screen.height / 2);
-	fill_img(info->img, info->c_color, 0, horizon);
-}
 
 void	init_ray_val(t_info *info, t_raycast *ray_val, int x)
 {
@@ -198,7 +183,7 @@ int	render_frame(t_info *info)
 {
 	key_update(info, &info->rinfo);
 	draw_floor(info);
-	draw_celling(info);
+	draw_ceiling(info);
 	raycasting(info);
 	mlx_put_image_to_window(info->mlx_ptr, info->win_ptr, info->img.img, 0, 0);
 	return (0);

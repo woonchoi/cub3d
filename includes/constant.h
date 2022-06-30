@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   constant.h                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: jasong <jasong@student.42seoul.kr>         +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/06/30 14:29:00 by jasong            #+#    #+#             */
+/*   Updated: 2022/06/30 14:30:19 by jasong           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef CONSTANT_H
 # define CONSTANT_H
 
@@ -20,13 +32,13 @@
 # define MOVE_SPEED 0.05
 # define ROTATE_SPEED 0.05
 
-typedef enum	e_bool
+typedef enum e_bool
 {
 	FALSE = 0,
 	TRUE = 1,
 }	t_bool;
 
-typedef enum	e_validate_bitmask
+typedef enum e_validate_bitmask
 {
 	EMPTY_LINE = 0,
 	NO_EXIST = 1,
@@ -40,13 +52,13 @@ typedef enum	e_validate_bitmask
 	ALL_EXIST = 127,
 }	t_validate_bitmask;
 
-typedef enum	e_key
+typedef enum e_key
 {
-	KEY_A = 97,
-	KEY_S = 115,
-	KEY_D = 100,
-	KEY_W = 119,
-	KEY_ESC = 65307,
+	KEY_A = 0,
+	KEY_S = 1,
+	KEY_D = 2,
+	KEY_W = 13,
+	KEY_ESC = 53,
 }	t_key;
 
 #endif

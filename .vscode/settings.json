@@ -5,6 +5,7 @@
 		"cub_util.h": "c",
 		"stdlib.h": "c",
 		"mlx.h": "c",
-		"cub.h": "c"
+		"cub.h": "c",
+		"parser.h": "c"
 	}
 }

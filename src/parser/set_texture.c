@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   set_texture.c                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: jasong <jasong@student.42seoul.kr>         +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/06/30 13:52:46 by jasong            #+#    #+#             */
+/*   Updated: 2022/06/30 13:54:22 by jasong           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "parser.h"
 
 void	load_image(t_info *info, int **tex, char *path, t_img *img)
@@ -6,9 +18,9 @@ void	load_image(t_info *info, int **tex, char *path, t_img *img)
 	int	y;
 
 	img->img = mlx_xpm_file_to_image(info->mlx_ptr, path,
-		&img->img_width, &img->img_height);
+			&img->img_width, &img->img_height);
 	img->data = (int *)mlx_get_data_addr(img->img, &img->bpp,
-		&img->size_l, &img->endian);
+			&img->size_l, &img->endian);
 	y = 0;
 	while (y < img->img_height)
 	{

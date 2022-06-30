@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   struct.h                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: jasong <jasong@student.42seoul.kr>         +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/06/30 14:29:12 by jasong            #+#    #+#             */
+/*   Updated: 2022/06/30 14:30:29 by jasong           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef STRUCT_H
 # define STRUCT_H
 
@@ -70,7 +82,7 @@ typedef struct s_screen_size
 	int	height;
 }	t_screen_size;
 
-typedef struct	s_keys
+typedef struct s_keys
 {
 	int	a;
 	int	s;
