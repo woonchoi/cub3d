@@ -6,7 +6,7 @@
 #    By: jasong <jasong@student.42seoul.kr>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/02/18 00:17:54 by jasong            #+#    #+#              #
-#    Updated: 2022/06/30 14:43:54 by jasong           ###   ########.fr        #
+#    Updated: 2022/06/30 16:03:40 by jasong           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -53,6 +53,8 @@ MAIN_SRCS = init_info.c \
 			key_utils.c \
 			set_rinfo.c \
 			draw.c \
+			ray.c \
+			texture.c \
 
 PARSER_SRCS =	check_arg.c \
 				check_splitted.c \

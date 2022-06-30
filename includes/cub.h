@@ -6,7 +6,7 @@
 /*   By: jasong <jasong@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/30 14:28:42 by jasong            #+#    #+#             */
-/*   Updated: 2022/06/30 14:40:53 by jasong           ###   ########.fr       */
+/*   Updated: 2022/06/30 16:03:09 by jasong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,22 @@ void	init_raycast_util(t_info *info);
 void	fill_img(t_img img, int color, int start, int stop);
 void	draw_floor(t_info *info);
 void	draw_ceiling(t_info *info);
+void	draw_texture_to_image(t_info *info, t_raycast *val, int x);
 
+/*
+** ray.c
+*/
+void	init_ray_val(t_info *info, t_raycast *ray_val, int x);
+void	set_ray_val_with_dir(t_info *info, t_raycast *val);
+void	shoot_ray(t_info *info, t_raycast *val);
 
+/*
+** texture.c
+*/
+
+void	find_wall_x(t_info *info, t_raycast *val);
+void	find_texture_x(t_raycast *val);
+void	calculate_texture_pixel_step(t_info *info, t_raycast *val);
+int		*get_correct_texture(t_info *info, t_raycast *val);
 
 #endif
