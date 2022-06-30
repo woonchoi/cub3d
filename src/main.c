@@ -6,7 +6,7 @@
 /*   By: jasong <jasong@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/30 13:53:06 by jasong            #+#    #+#             */
-/*   Updated: 2022/06/30 14:41:34 by jasong           ###   ########.fr       */
+/*   Updated: 2022/06/30 14:53:20 by jasong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,10 @@
 void	init_ray_val(t_info *info, t_raycast *ray_val, int x)
 {
 	ray_val->camera_x = 2 * x / (double)info->screen.width - 1;
-	ray_val->raydir_x = (info->rinfo.dir_x + 
-		info->rinfo.plane_x * ray_val->camera_x);
-	ray_val->raydir_y = (info->rinfo.dir_y + 
-		info->rinfo.plane_y * ray_val->camera_x);
+	ray_val->raydir_x = (info->rinfo.dir_x + info->rinfo.plane_x
+			* ray_val->camera_x);
+	ray_val->raydir_y = (info->rinfo.dir_y + info->rinfo.plane_y
+			* ray_val->camera_x);
 	ray_val->map_x = (int)info->rinfo.pos_x;
 	ray_val->map_y = (int)info->rinfo.pos_y;
 	ray_val->delta_dist_x = fabs(1 / ray_val->raydir_x);
@@ -33,25 +33,25 @@ void	set_ray_val_with_dir(t_info *info, t_raycast *val)
 	{
 		val->step_x = -1;
 		val->side_dist_x = ((info->rinfo.pos_x - val->map_x)
-			* val->delta_dist_x);
+				* val->delta_dist_x);
 	}
 	else
 	{
 		val->step_x = 1;
 		val->side_dist_x = ((1.0 + val->map_x - info->rinfo.pos_x)
-			* val->delta_dist_x);
+				* val->delta_dist_x);
 	}
 	if (val->raydir_y < 0)
 	{
 		val->step_y = -1;
 		val->side_dist_y = ((info->rinfo.pos_y - val->map_y)
-			* val->delta_dist_y);
+				* val->delta_dist_y);
 	}
 	else
 	{
 		val->step_y = 1;
 		val->side_dist_y = ((1.0 + val->map_y - info->rinfo.pos_y)
-			* val->delta_dist_y);
+				* val->delta_dist_y);
 	}
 }
 
@@ -79,20 +79,20 @@ void	shoot_ray(t_info *info, t_raycast *val)
 void	check_side(t_info *info, t_raycast *val)
 {
 	if (!val->side)
-		val->perp_wall_dist = (val->map_x - info->rinfo.pos_x +
-			(1 - val->step_x) / 2) / val->raydir_x;
+		val->perp_wall_dist = (val->map_x - info->rinfo.pos_x
+				+ (1 - val->step_x) / 2) / val->raydir_x;
 	else
-		val->perp_wall_dist = (val->map_y - info->rinfo.pos_y +
-			(1 - val->step_y) / 2) / val->raydir_y;
+		val->perp_wall_dist = (val->map_y - info->rinfo.pos_y
+				+ (1 - val->step_y) / 2) / val->raydir_y;
 }
 
 void	check_draw_startend(t_info *info, t_raycast *val)
 {
 	val->line_height = (int)(info->screen.height / val->perp_wall_dist);
-	val->draw_start =  info->screen.height / 2 - val->line_height / 2;
+	val->draw_start = info->screen.height / 2 - val->line_height / 2;
 	if (val->draw_start < 0)
 		val->draw_start = 0;
-	val->draw_end =  info->screen.height / 2 + val->line_height / 2;
+	val->draw_end = info->screen.height / 2 + val->line_height / 2;
 	if (val->draw_end > info->screen.height)
 		val->draw_end = info->screen.height - 1;
 }
@@ -100,11 +100,11 @@ void	check_draw_startend(t_info *info, t_raycast *val)
 void	find_wall_x(t_info *info, t_raycast *val)
 {
 	if (val->side == 0)
-		val->wall_x = info->rinfo.pos_y +
-			(val->perp_wall_dist * val->raydir_y);
+		val->wall_x = info->rinfo.pos_y
+			+ (val->perp_wall_dist * val->raydir_y);
 	else
-		val->wall_x = info->rinfo.pos_x +
-			(val->perp_wall_dist * val->raydir_x);
+		val->wall_x = info->rinfo.pos_x
+			+ (val->perp_wall_dist * val->raydir_x);
 	val->wall_x -= floor(val->wall_x);
 }
 
@@ -121,8 +121,8 @@ void	calculate_texture_pixel_step(t_info *info, t_raycast *val)
 {
 	val->step = 1.0 * WALL_IMAGE_HEIGHT / val->line_height;
 	val->texture_pos = (val->draw_start
-		- info->screen.height / 2
-		+ val->line_height / 2) * val->step;
+			- info->screen.height / 2
+			+ val->line_height / 2) * val->step;
 }
 
 int	*get_correct_texture(t_info *info, t_raycast *val)
@@ -152,7 +152,8 @@ void	draw_texture_to_image(t_info *info, t_raycast *val, int x)
 	{
 		val->texture_y = (int)val->texture_pos & 63;
 		val->texture_pos += val->step;
-		color = texture[WALL_IMAGE_HEIGHT * val->texture_y + val->texture_x];
+		color = texture[WALL_IMAGE_HEIGHT * (val->texture_y + 1)
+			- (val->texture_x + 1)];
 		info->img.data[y * info->screen.width + x] = color;
 		y++;
 	}
@@ -189,15 +190,15 @@ int	render_frame(t_info *info)
 	return (0);
 }
 
-int main(int argc, char **argv)
+int	main(int argc, char **argv)
 {
 	t_info	info;
 
 	check_valid_arg(argc, argv);
 	init_info(&info, argv[1]);
 	mlx_hook(info.win_ptr, 17, 0, &exit_hook, &info);
-	mlx_hook(info.win_ptr, 2, 1L<<0, &key_press, &info);
-	mlx_hook(info.win_ptr, 3, 1L<<1, &key_release, &info);
+	mlx_hook(info.win_ptr, 2, 1L << 0, &key_press, &info);
+	mlx_hook(info.win_ptr, 3, 1L << 1, &key_release, &info);
 	mlx_loop_hook(info.mlx_ptr, &render_frame, &info);
 	mlx_loop(info.mlx_ptr);
 	exit(0);
