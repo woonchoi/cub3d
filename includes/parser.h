@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   parser.h                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: jasong <jasong@student.42seoul.kr>         +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/06/30 14:29:08 by jasong            #+#    #+#             */
+/*   Updated: 2022/06/30 14:39:29 by jasong           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef PARSER_H
 # define PARSER_H
 
@@ -30,13 +42,9 @@ void	set_map_list(t_info *info, char *line, int *flag);
 void	free_parse_list(t_info *info);
 int		is_line_only_space(char *line);
 
-
 void	set_color(t_info *info, char *line, int *flag, int now_flag);
-
 void	set_texture(t_info *info, char *path, int *flag, int now_flag);
-
 void	set_element(t_info *info, char *line, int *flag);
-
 int		check_valid_filename(char *path);
 
 void	set_dxdy(int *dx, int *dy);

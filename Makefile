@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: woonchoi <woonchoi@student.42.fr>          +#+  +:+       +#+         #
+#    By: jasong <jasong@student.42seoul.kr>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/02/18 00:17:54 by jasong            #+#    #+#              #
-#    Updated: 2022/06/27 19:51:19 by woonchoi         ###   ########.fr        #
+#    Updated: 2022/06/30 16:03:40 by jasong           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -49,6 +49,12 @@ MAIN_SRCS = init_info.c \
 			print_err.c \
 			safety_free.c \
 			test_util.c \
+			key_event.c \
+			key_utils.c \
+			set_rinfo.c \
+			draw.c \
+			ray.c \
+			texture.c \
 
 PARSER_SRCS =	check_arg.c \
 				check_splitted.c \

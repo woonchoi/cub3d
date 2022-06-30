@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   parser_util.c                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: jasong <jasong@student.42seoul.kr>         +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/06/30 13:52:27 by jasong            #+#    #+#             */
+/*   Updated: 2022/06/30 13:55:48 by jasong           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "parser.h"
 
 void	set_map_list(t_info *info, char *line, int *flag)
@@ -23,7 +35,7 @@ void	set_map_list(t_info *info, char *line, int *flag)
 void	free_parse_list(t_info *info)
 {
 	t_plist	*cur;
-	t_plist *temp;
+	t_plist	*temp;
 
 	cur = info->head;
 	while (cur)

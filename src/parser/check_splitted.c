@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   check_splitted.c                                   :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: jasong <jasong@student.42seoul.kr>         +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/06/30 13:52:16 by jasong            #+#    #+#             */
+/*   Updated: 2022/06/30 13:55:02 by jasong           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "parser.h"
 
 int	**malloc_visited_array(t_info *info)
@@ -19,13 +31,12 @@ int	**malloc_visited_array(t_info *info)
 	return (ret);
 }
 
-// need refactoring because set_dxdy and using stack with recursive is too heavy
 int	recursive_dfs(t_info *info, int ***visited, int x, int y)
 {
 	int	dx[4];
 	int	dy[4];
 	int	i;
-	int count;
+	int	count;
 
 	set_dxdy(dx, dy);
 	i = 0;

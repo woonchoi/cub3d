@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   count_element.c                                    :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: jasong <jasong@student.42seoul.kr>         +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/06/30 13:52:22 by jasong            #+#    #+#             */
+/*   Updated: 2022/06/30 13:54:50 by jasong           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "parser.h"
 
 void	count_player(char s, int *check_player, int *count)
@@ -34,7 +46,7 @@ int	count_element(t_info *info)
 		{
 			count_player(info->map[y][x], &check_player, &count);
 			count_wall_floor(info->map[y][x], &count);
-			x++; 
+			x++;
 		}
 		y++;
 	}
