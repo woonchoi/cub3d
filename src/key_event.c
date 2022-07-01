@@ -6,7 +6,7 @@
 /*   By: jasong <jasong@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/30 14:04:12 by jasong            #+#    #+#             */
-/*   Updated: 2022/07/01 11:51:44 by jasong           ###   ########.fr       */
+/*   Updated: 2022/07/01 12:22:09 by jasong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,6 @@ int	key_release(int key, t_info *info)
 		info->key.left_arrow = 0;
 	if (key == KEY_RIGHT)
 		info->key.right_arrow = 0;
-	
 	return (0);
 }
 

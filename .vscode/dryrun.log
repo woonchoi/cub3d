@@ -1,8 +1,55 @@
 make --dry-run --keep-going --print-directory
 make: Entering directory `/Users/jasong/push'
-echo "\x1b[32m" "Compiling...\t" "\x1b[0m" "\x1b[33m" src/init_info.c "\x1b[34m" "\x1b[1A\x1b[M" "\x1b[0m"
-clang -Wall -Wextra -Werror -c -I./lib/libft// -I./lib/get_next_line/ -I./includes/ -I -I./mlx/ src/init_info.c -o src/init_info.o
  
+/Applications/Xcode.app/Contents/Developer/usr/bin/make -s -C ./lib/libft// all
+ 
+make[1]: Entering directory `/Users/jasong/push/lib/libft'
+gcc -Wall -Wextra -Werror -c ft_atoi.c -o ft_atoi.o
+ 
+gcc -Wall -Wextra -Werror -c ft_toupper.c -o ft_toupper.o
+gcc -Wall -Wextra -Werror -c ft_tolower.c -o ft_tolower.o
+gcc -Wall -Wextra -Werror -c ft_isascii.c -o ft_isascii.o
+ 
+gcc -Wall -Wextra -Werror -c ft_isprint.c -o ft_isprint.o
+gcc -Wall -Wextra -Werror -c ft_isdigit.c -o ft_isdigit.o
+gcc -Wall -Wextra -Werror -c ft_isalpha.c -o ft_isalpha.o
+gcc -Wall -Wextra -Werror -c ft_isalnum.c -o ft_isalnum.o
+gcc -Wall -Wextra -Werror -c ft_strncmp.c -o ft_strncmp.o
+gcc -Wall -Wextra -Werror -c ft_strlen.c -o ft_strlen.o
+gcc -Wall -Wextra -Werror -c ft_strlcpy.c -o ft_strlcpy.o
+gcc -Wall -Wextra -Werror -c ft_memset.c -o ft_memset.o
+gcc -Wall -Wextra -Werror -c ft_bzero.c -o ft_bzero.o
+gcc -Wall -Wextra -Werror -c ft_memcpy.c -o ft_memcpy.o
+gcc -Wall -Wextra -Werror -c ft_strchr.c -o ft_strchr.o
+ 
+gcc -Wall -Wextra -Werror -c ft_strrchr.c -o ft_strrchr.o
+gcc -Wall -Wextra -Werror -c ft_memccpy.c -o ft_memccpy.o
+gcc -Wall -Wextra -Werror -c ft_memmove.c -o ft_memmove.o
+gcc -Wall -Wextra -Werror -c ft_strdup.c -o ft_strdup.o
+gcc -Wall -Wextra -Werror -c ft_memchr.c -o ft_memchr.o
+gcc -Wall -Wextra -Werror -c ft_memcmp.c -o ft_memcmp.o
+gcc -Wall -Wextra -Werror -c ft_strlcat.c -o ft_strlcat.o
+gcc -Wall -Wextra -Werror -c ft_strnstr.c -o ft_strnstr.o
+gcc -Wall -Wextra -Werror -c ft_calloc.c -o ft_calloc.o
+gcc -Wall -Wextra -Werror -c ft_substr.c -o ft_substr.o
+ 
+gcc -Wall -Wextra -Werror -c ft_strjoin.c -o ft_strjoin.o
+gcc -Wall -Wextra -Werror -c ft_strtrim.c -o ft_strtrim.o
+gcc -Wall -Wextra -Werror -c ft_split.c -o ft_split.o
+gcc -Wall -Wextra -Werror -c ft_itoa.c -o ft_itoa.o
+gcc -Wall -Wextra -Werror -c ft_strmapi.c -o ft_strmapi.o
+gcc -Wall -Wextra -Werror -c ft_putchar_fd.c -o ft_putchar_fd.o
+gcc -Wall -Wextra -Werror -c ft_putstr_fd.c -o ft_putstr_fd.o
+gcc -Wall -Wextra -Werror -c ft_putendl_fd.c -o ft_putendl_fd.o
+ 
+gcc -Wall -Wextra -Werror -c ft_putnbr_fd.c -o ft_putnbr_fd.o
+ar -cr libft.a ft_atoi.o ft_toupper.o ft_tolower.o ft_isascii.o ft_isprint.o ft_isdigit.o ft_isalpha.o ft_isalnum.o ft_strncmp.o ft_strlen.o ft_strlcpy.o ft_memset.o ft_bzero.o ft_memcpy.o ft_strchr.o ft_strrchr.o ft_memccpy.o ft_memmove.o ft_strdup.o ft_memchr.o ft_memcmp.o ft_strlcat.o ft_strnstr.o ft_calloc.o ft_substr.o ft_strjoin.o ft_strtrim.o ft_split.o ft_itoa.o ft_strmapi.o ft_putchar_fd.o ft_putstr_fd.o ft_putendl_fd.o ft_putnbr_fd.o
+make[1]: Leaving directory `/Users/jasong/push/lib/libft'
+echo "\x1b[32m" "Compile 'libft.a' completed!" "\x1b[0m"
+ 
+echo "\x1b[32m" "Compiling...\t" "\x1b[0m" "\x1b[33m" src/init_info.c "\x1b[34m" "\x1b[1A\x1b[M" "\x1b[0m"
+ 
+clang -Wall -Wextra -Werror -c -I./lib/libft// -I./lib/get_next_line/ -I./includes/ -I -I./mlx/ src/init_info.c -o src/init_info.o
 echo "\x1b[32m" "Compiling...\t" "\x1b[0m" "\x1b[33m" src/main.c "\x1b[34m" "\x1b[1A\x1b[M" "\x1b[0m"
 clang -Wall -Wextra -Werror -c -I./lib/libft// -I./lib/get_next_line/ -I./includes/ -I -I./mlx/ src/main.c -o src/main.o
 echo "\x1b[32m" "Compiling...\t" "\x1b[0m" "\x1b[33m" src/print_err.c "\x1b[34m" "\x1b[1A\x1b[M" "\x1b[0m"
@@ -11,24 +58,24 @@ echo "\x1b[32m" "Compiling...\t" "\x1b[0m" "\x1b[33m" src/safety_free.c "\x1b[34
 clang -Wall -Wextra -Werror -c -I./lib/libft// -I./lib/get_next_line/ -I./includes/ -I -I./mlx/ src/safety_free.c -o src/safety_free.o
 echo "\x1b[32m" "Compiling...\t" "\x1b[0m" "\x1b[33m" src/key_event.c "\x1b[34m" "\x1b[1A\x1b[M" "\x1b[0m"
 clang -Wall -Wextra -Werror -c -I./lib/libft// -I./lib/get_next_line/ -I./includes/ -I -I./mlx/ src/key_event.c -o src/key_event.o
- 
 echo "\x1b[32m" "Compiling...\t" "\x1b[0m" "\x1b[33m" src/move_utils.c "\x1b[34m" "\x1b[1A\x1b[M" "\x1b[0m"
 clang -Wall -Wextra -Werror -c -I./lib/libft// -I./lib/get_next_line/ -I./includes/ -I -I./mlx/ src/move_utils.c -o src/move_utils.o
+echo "\x1b[32m" "Compiling...\t" "\x1b[0m" "\x1b[33m" src/rotate_utils.c "\x1b[34m" "\x1b[1A\x1b[M" "\x1b[0m"
+clang -Wall -Wextra -Werror -c -I./lib/libft// -I./lib/get_next_line/ -I./includes/ -I -I./mlx/ src/rotate_utils.c -o src/rotate_utils.o
 echo "\x1b[32m" "Compiling...\t" "\x1b[0m" "\x1b[33m" src/set_rinfo.c "\x1b[34m" "\x1b[1A\x1b[M" "\x1b[0m"
 clang -Wall -Wextra -Werror -c -I./lib/libft// -I./lib/get_next_line/ -I./includes/ -I -I./mlx/ src/set_rinfo.c -o src/set_rinfo.o
+ 
 echo "\x1b[32m" "Compiling...\t" "\x1b[0m" "\x1b[33m" src/draw.c "\x1b[34m" "\x1b[1A\x1b[M" "\x1b[0m"
 clang -Wall -Wextra -Werror -c -I./lib/libft// -I./lib/get_next_line/ -I./includes/ -I -I./mlx/ src/draw.c -o src/draw.o
 echo "\x1b[32m" "Compiling...\t" "\x1b[0m" "\x1b[33m" src/ray.c "\x1b[34m" "\x1b[1A\x1b[M" "\x1b[0m"
 clang -Wall -Wextra -Werror -c -I./lib/libft// -I./lib/get_next_line/ -I./includes/ -I -I./mlx/ src/ray.c -o src/ray.o
 echo "\x1b[32m" "Compiling...\t" "\x1b[0m" "\x1b[33m" src/texture.c "\x1b[34m" "\x1b[1A\x1b[M" "\x1b[0m"
 clang -Wall -Wextra -Werror -c -I./lib/libft// -I./lib/get_next_line/ -I./includes/ -I -I./mlx/ src/texture.c -o src/texture.o
- 
-make: *** No rule to make target `src/rotate_utils.o', needed by `cub3d'.
-
 echo "\x1b[32m" "Compiling...\t" "\x1b[0m" "\x1b[33m" src/parser/check_arg.c "\x1b[34m" "\x1b[1A\x1b[M" "\x1b[0m"
 clang -Wall -Wextra -Werror -c -I./lib/libft// -I./lib/get_next_line/ -I./includes/ -I -I./mlx/ src/parser/check_arg.c -o src/parser/check_arg.o
 echo "\x1b[32m" "Compiling...\t" "\x1b[0m" "\x1b[33m" src/parser/check_splitted.c "\x1b[34m" "\x1b[1A\x1b[M" "\x1b[0m"
 clang -Wall -Wextra -Werror -c -I./lib/libft// -I./lib/get_next_line/ -I./includes/ -I -I./mlx/ src/parser/check_splitted.c -o src/parser/check_splitted.o
+ 
 echo "\x1b[32m" "Compiling...\t" "\x1b[0m" "\x1b[33m" src/parser/count_element.c "\x1b[34m" "\x1b[1A\x1b[M" "\x1b[0m"
 clang -Wall -Wextra -Werror -c -I./lib/libft// -I./lib/get_next_line/ -I./includes/ -I -I./mlx/ src/parser/count_element.c -o src/parser/count_element.o
 echo "\x1b[32m" "Compiling...\t" "\x1b[0m" "\x1b[33m" src/parser/parser_list_util.c "\x1b[34m" "\x1b[1A\x1b[M" "\x1b[0m"
@@ -45,6 +92,7 @@ echo "\x1b[32m" "Compiling...\t" "\x1b[0m" "\x1b[33m" src/parser/set_texture.c "
 clang -Wall -Wextra -Werror -c -I./lib/libft// -I./lib/get_next_line/ -I./includes/ -I -I./mlx/ src/parser/set_texture.c -o src/parser/set_texture.o
 echo "\x1b[32m" "Compiling...\t" "\x1b[0m" "\x1b[33m" src/parser/validate_file.c "\x1b[34m" "\x1b[1A\x1b[M" "\x1b[0m"
 clang -Wall -Wextra -Werror -c -I./lib/libft// -I./lib/get_next_line/ -I./includes/ -I -I./mlx/ src/parser/validate_file.c -o src/parser/validate_file.o
+ 
 echo "\x1b[32m" "Compiling...\t" "\x1b[0m" "\x1b[33m" src/parser/validate_map_util.c "\x1b[34m" "\x1b[1A\x1b[M" "\x1b[0m"
 clang -Wall -Wextra -Werror -c -I./lib/libft// -I./lib/get_next_line/ -I./includes/ -I -I./mlx/ src/parser/validate_map_util.c -o src/parser/validate_map_util.o
 echo "\x1b[32m" "Compiling...\t" "\x1b[0m" "\x1b[33m" src/parser/validate_map.c "\x1b[34m" "\x1b[1A\x1b[M" "\x1b[0m"
@@ -53,5 +101,34 @@ echo "\x1b[32m" "Compiling...\t" "\x1b[0m" "\x1b[33m" src/mlx_logic/exit_hook.c 
 clang -Wall -Wextra -Werror -c -I./lib/libft// -I./lib/get_next_line/ -I./includes/ -I -I./mlx/ src/mlx_logic/exit_hook.c -o src/mlx_logic/exit_hook.o
 echo "\x1b[32m" "Compiling...\t" "\x1b[0m" "\x1b[33m" src/mlx_logic/init_mlx.c "\x1b[34m" "\x1b[1A\x1b[M" "\x1b[0m"
 clang -Wall -Wextra -Werror -c -I./lib/libft// -I./lib/get_next_line/ -I./includes/ -I -I./mlx/ src/mlx_logic/init_mlx.c -o src/mlx_logic/init_mlx.o
+/Applications/Xcode.app/Contents/Developer/usr/bin/make -s -C ./lib/get_next_line/ all
+ 
+make[1]: Entering directory `/Users/jasong/push/lib/get_next_line'
+gcc -Wall -Wextra -Werror -c get_next_line.c -o get_next_line.o
+ 
+gcc -Wall -Wextra -Werror -c get_next_line_utils.c -o get_next_line_utils.o
+ar -cr libgnl.a get_next_line.o get_next_line_utils.o
+make[1]: Leaving directory `/Users/jasong/push/lib/get_next_line'
+echo "\x1b[32m" "Compile 'libgnl.a' completed!" "\x1b[0m"
+/Applications/Xcode.app/Contents/Developer/usr/bin/make -s -C ./mlx/ all
+ 
+make[1]: Entering directory `/Users/jasong/push/mlx'
+cc -O2 -DSTRINGPUTX11   -c -o mlx_shaders.o mlx_shaders.c
+ 
+cc -O2 -DSTRINGPUTX11   -c -o mlx_new_window.o mlx_new_window.m
+cc -O2 -DSTRINGPUTX11   -c -o mlx_init_loop.o mlx_init_loop.m
+cc -O2 -DSTRINGPUTX11   -c -o mlx_new_image.o mlx_new_image.m
+ 
+cc -O2 -DSTRINGPUTX11   -c -o mlx_xpm.o mlx_xpm.c
+cc -O2 -DSTRINGPUTX11   -c -o mlx_int_str_to_wordtab.o mlx_int_str_to_wordtab.c
+cc -O2 -DSTRINGPUTX11   -c -o mlx_png.o mlx_png.c
+cc -O2 -DSTRINGPUTX11   -c -o mlx_mouse.o mlx_mouse.m
+ar -r libmlx.a mlx_shaders.o mlx_new_window.o mlx_init_loop.o mlx_new_image.o mlx_xpm.o mlx_int_str_to_wordtab.o mlx_png.o mlx_mouse.o
+ranlib libmlx.a
+make[1]: Leaving directory `/Users/jasong/push/mlx'
+echo "\x1b[32m" "Compile 'libmlx.a' completed!" "\x1b[0m"
+clang -Wall -Wextra -Werror -L./lib/libft// -L./lib/get_next_line/ -I./lib/libft// -I./lib/get_next_line/ -I./includes/ -I./mlx/ ./src/init_info.o ./src/main.o ./src/print_err.o ./src/safety_free.o ./src/key_event.o ./src/move_utils.o ./src/rotate_utils.o ./src/set_rinfo.o ./src/draw.o ./src/ray.o ./src/texture.o ./src/parser/check_arg.o ./src/parser/check_splitted.o ./src/parser/count_element.o ./src/parser/parser_list_util.o ./src/parser/parser_util.o ./src/parser/parser.o ./src/parser/set_color.o ./src/parser/set_element.o ./src/parser/set_texture.o ./src/parser/validate_file.o ./src/parser/validate_map_util.o ./src/parser/validate_map.o ./src/mlx_logic/exit_hook.o ./src/mlx_logic/init_mlx.o -o cub3d -lft -lgnl -Lmlx -lmlx -framework OpenGL -framework AppKit
+echo "\x1b[32m" "Compile cub3d completed!" "\x1b[0m"
+ 
 make: Leaving directory `/Users/jasong/push'
  
