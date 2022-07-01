@@ -6,7 +6,7 @@
 /*   By: jasong <jasong@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/30 14:29:12 by jasong            #+#    #+#             */
-/*   Updated: 2022/06/30 14:30:29 by jasong           ###   ########.fr       */
+/*   Updated: 2022/07/01 10:49:39 by jasong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -106,6 +106,7 @@ typedef struct s_info
 	void			*mlx_ptr;
 	void			*win_ptr;
 	t_keys			key;
+	int				frame;
 }	t_info;
 
 #endif

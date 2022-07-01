@@ -1,0 +1,935 @@
+make all --print-data-base --no-builtin-variables --no-builtin-rules --question
+# GNU Make 3.81
+# Copyright (C) 2006  Free Software Foundation, Inc.
+# This is free software; see the source for copying conditions.
+# There is NO warranty; not even for MERCHANTABILITY or FITNESS FOR A
+# PARTICULAR PURPOSE.
+
+# This program built for i386-apple-darwin11.3.0
+ 
+
+# Make data base, printed on Fri Jul  1 10:35:49 2022
+
+# Variables
+
+# automatic
+<D = $(patsubst %/,%,$(dir $<))
+# automatic
+?F = $(notdir $?)
+# environment
+ELECTRON_NO_ATTACH_CONSOLE = 1
+# makefile (from `Makefile', line 22)
+LINE_CLEAR = "\x1b[1A\x1b[M"
+# makefile (from `Makefile', line 74)
+PARSER_SRCDIR = $(addprefix $(PARSER_DIR), $(PARSER_SRCS))
+# automatic
+?D = $(patsubst %/,%,$(dir $?))
+# makefile (from `Makefile', line 41)
+INCLUDES = -I$(LIBFT_DIR) -I$(GNL_DIR) -I$(INC_DIR) -I$(MLX_LINUX_DIR)
+# makefile (from `Makefile', line 75)
+MLX_LOGIC_SRCDIR = $(addprefix $(MLX_LOGIC_DIR), $(MLX_LOGIC_SRCS))
+# automatic
+@D = $(patsubst %/,%,$(dir $@))
+# automatic
+@F = $(notdir $@)
+# makefile
+CURDIR := /Users/jasong/push
+# makefile
+SHELL = /bin/sh
+# environment
+VSCODE_NLS_CONFIG = {"locale":"en-us","availableLanguages":{},"_languagePackSupport":true}
+# environment
+_ = /usr/bin/make
+# makefile (from `Makefile', line 33)
+MLX_DIR = ./mlx/
+# makefile (from `Makefile', line 1)
+MAKEFILE_LIST :=  Makefile
+# environment
+VSCODE_NODE_CACHED_DATA_DIR = 
+# environment
+VERBOSE_LOGGING = true
+# environment
+VSCODE_LOGS = /Users/jasong/Library/Application Support/Code/logs/20220701T102953
+# makefile (from `Makefile', line 78)
+OBJS = $(SRCS:.c=.o)
+# environment
+VSCODE_IPC_HOOK_EXTHOST = /var/folders/zz/zyxvpxvq6csfxvn_n000cj54003499/T/vscode-ipc-212ef89c-9de6-4e8a-828c-3c8afc7ee935.sock
+# makefile (from `Makefile', line 57)
+PARSER_SRCS = check_arg.c check_splitted.c count_element.c parser_list_util.c parser_util.c parser.c set_color.c set_element.c set_texture.c validate_file.c validate_map_util.c validate_map.c 
+# environment
+PATH = /Users/jasong/.brew/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/munki
+# makefile (from `Makefile', line 16)
+COLOR_GREEN = "\x1b[32m"
+# makefile (from `Makefile', line 70)
+MLX_LOGIC_SRCS = exit_hook.c init_mlx.c 
+# environment
+LSCOLORS = Gxfxcxdxbxegedabagacad
+# makefile (from `Makefile', line 43)
+MLX_FLAG = -Lmlx -lmlx -framework OpenGL -framework AppKit
+# environment
+VSCODE_LOG_STACK = false
+# environment
+ELECTRON_RUN_AS_NODE = 1
+# default
+.FEATURES := target-specific order-only second-expansion else-if archives jobserver check-symlink
+# makefile (from `Makefile', line 27)
+LIBFT_DIR = ./lib/libft/
+# environment
+SSH_AUTH_SOCK = /private/tmp/com.apple.launchd.QVsd16WaSd/Listeners
+# automatic
+%F = $(notdir $%)
+# makefile (from `Makefile', line 15)
+COLOR_RED = "\x1b[31m" 
+# environment
+PWD = /Users/jasong/push
+# makefile (from `Makefile', line 21)
+COLOR_RESET = "\x1b[0m"
+# makefile (from `Makefile', line 26)
+SAN_FLAG = -g3 -fsanitize=address
+# makefile (from `Makefile', line 32)
+INC_DIR = ./includes/
+# environment
+HOME = /Users/jasong
+# default
+MAKEFILEPATH := /Applications/Xcode.app/Contents/Developer/Makefiles
+# environment
+VSCODE_CLI = 1
+# environment
+LOGNAME = jasong
+# environment
+APPLICATION_INSIGHTS_NO_DIAGNOSTIC_CHANNEL = true
+# environment
+ZSH = /Users/jasong/.oh-my-zsh
+# makefile (from `Makefile', line 25)
+CFLAG = -Wall -Wextra -Werror
+# environment
+VSCODE_HANDLES_UNCAUGHT_ERRORS = true
+# automatic
+^D = $(patsubst %/,%,$(dir $^))
+# makefile (from `Makefile', line 17)
+COLOR_YELLOW = "\x1b[33m"
+# environment
+XPC_FLAGS = 0x0
+# environment
+COLORTERM = truecolor
+# default
+MAKE = $(MAKE_COMMAND)
+# environment
+LC_TERMINAL = iTerm2
+# makefile (from `Makefile', line 77)
+SRCS = $(MAIN_SRCDIR) $(PARSER_SRCDIR) $(MLX_LOGIC_SRCDIR)
+# environment
+SHLVL = 3
+# makefile (from `Makefile', line 28)
+LIBFT = $(LIBFT_DIR)libft.a
+# makefile (from `Makefile', line 24)
+CC = clang
+# default
+MAKE_VERSION := 3.81
+# environment
+AMD_ENTRYPOINT = vs/workbench/services/extensions/node/extensionHostProcess
+# environment
+USER = jasong
+# makefile
+.DEFAULT_GOAL := all
+# default
+MAKECMDGOALS := all
+# environment
+TERM_SESSION_ID = w0t0p0:495F6902-4FA8-4552-9D0B-79EC54A4325D
+# makefile (from `Makefile', line 13)
+NAME = cub3d
+# environment
+PIPE_LOGGING = true
+# environment
+LESS = -R
+# automatic
+%D = $(patsubst %/,%,$(dir $%))
+# default
+MAKE_COMMAND := /Applications/Xcode.app/Contents/Developer/usr/bin/make
+# environment
+TERM_PROGRAM = iTerm.app
+# default
+.VARIABLES := 
+# environment
+TMPDIR = /var/folders/zz/zyxvpxvq6csfxvn_n000cj54003499/T/
+# automatic
+*F = $(notdir $*)
+# environment
+VSCODE_IPC_HOOK = /Users/jasong/Library/Application Support/Code/1.39.2-main.sock
+# makefile
+MAKEFLAGS = Rrqp
+# environment
+MFLAGS = -Rrqp
+# automatic
+*D = $(patsubst %/,%,$(dir $*))
+# environment
+TERM_PROGRAM_VERSION = 3.3.7
+# environment
+MAIL = jasong@student.42seoul.kr
+# environment
+XPC_SERVICE_NAME = 0
+# environment
+LC_TERMINAL_VERSION = 3.3.7
+# automatic
++D = $(patsubst %/,%,$(dir $+))
+# automatic
++F = $(notdir $+)
+# makefile (from `Makefile', line 36)
+PARSER_DIR = $(SRC_DIR)parser/
+# environment
+ITERM_SESSION_ID = w0t0p0:495F6902-4FA8-4552-9D0B-79EC54A4325D
+# makefile (from `Makefile', line 19)
+COLOR_WHITE = "\x1b[37m"
+# makefile (from `Makefile', line 73)
+MAIN_SRCDIR = $(addprefix $(SRC_DIR), $(MAIN_SRCS))
+# makefile (from `Makefile', line 18)
+COLOR_BLUE = "\x1b[34m"
+# environment
+COLORFGBG = 15;0
+# environment
+__CF_USER_TEXT_ENCODING = 0x19129:0x0:0x0
+# makefile (from `Makefile', line 37)
+MLX_LOGIC_DIR = $(SRC_DIR)mlx_logic/
+# makefile (from `Makefile', line 20)
+ 
+COLOR_CYAN = "\x1b[36m"
+# default
+MAKEFILES := 
+# makefile (from `Makefile', line 30)
+GNL = $(GNL_DIR)libgnl.a
+# makefile (from `Makefile', line 35)
+SRC_DIR = ./src/
+# automatic
+<F = $(notdir $<)
+# environment
+ITERM_PROFILE = Default
+# environment
+PAGER = less
+# environment
+LC_ALL = C
+# makefile (from `Makefile', line 40)
+LIBRARIES = -L$(LIBFT_DIR) -L$(GNL_DIR)
+# automatic
+^F = $(notdir $^)
+# default
+SUFFIXES := 
+# default
+.INCLUDE_DIRS = /usr/local/include
+# environment
+MAKELEVEL := 0
+# makefile (from `Makefile', line 45)
+MAIN_SRCS = init_info.c main.c print_err.c safety_free.c test_util.c key_event.c key_utils.c set_rinfo.c draw.c ray.c texture.c 
+# environment
+LANG = C
+# environment
+TERM = xterm-256color
+# environment
+VSCODE_PID = 4990
+# makefile (from `Makefile', line 29)
+GNL_DIR = ./lib/get_next_line/
+# variable set hash-table stats:
+# Load=107/1024=10%, Rehash=0, Collisions=13/152=9%
+
+# Pattern-specific Variable Values
+
+# No pattern-specific variable values.
+
+# Directories
+
+# . (device 16777225, inode 8084169): 12 files, no impossibilities.
+# src/mlx_logic (device 16777225, inode 8084336): 5 files, no impossibilities so far.
+# src (device 16777225, inode 8084329): 26 files, no impossibilities so far.
+# src/parser (device 16777225, inode 8084339): 25 files, no impossibilities so far.
+
+# 68 files, no impossibilities in 4 directories.
+
+# Implicit Rules
+
+%.o: %.c
+#  commands to execute (from `Makefile', line 91):
+	@echo $(COLOR_GREEN) "Compiling...\t" $(COLOR_RESET) $(COLOR_YELLOW) $< $(COLOR_BLUE) $(LINE_CLEAR) $(COLOR_RESET)
+	@$(CC) $(CFLAG) -c $(INCLUDES) -I$(MLX_DIR) $< -o $@
+	
+
+# 1 implicit rules, 0 (0.0%) terminal.
+
+# Files
+
+# Not a target:
+src/parser/set_color.c:
+#  Implicit rule search has been done.
+#  Last modified 2022-07-01 10:28:52
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+
+# Not a target:
+src/mlx_logic/exit_hook.c:
+#  Implicit rule search has been done.
+#  Last modified 2022-07-01 10:28:52
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+
+all: cub3d
+#  Phony target (prerequisite of .PHONY).
+#  Command-line target.
+#  Implicit rule search has not been done.
+#  File does not exist.
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+
+# Not a target:
+src/mlx_logic/init_mlx.c:
+#  Implicit rule search has been done.
+#  Last modified 2022-07-01 10:28:52
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+
+.PHONY: all clean fclean re debug
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+src/main.o: src/main.c
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: `src/main'
+#  Last modified 2022-07-01 10:34:56
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+#  commands to execute (from `Makefile', line 91):
+	@echo $(COLOR_GREEN) "Compiling...\t" $(COLOR_RESET) $(COLOR_YELLOW) $< $(COLOR_BLUE) $(LINE_CLEAR) $(COLOR_RESET)
+	@$(CC) $(CFLAG) -c $(INCLUDES) -I$(MLX_DIR) $< -o $@
+	
+
+# Not a target:
+src/key_utils.c:
+#  Implicit rule search has been done.
+#  Last modified 2022-07-01 10:28:52
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+
+src/test_util.o: src/test_util.c
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: `src/test_util'
+#  Last modified 2022-07-01 10:34:56
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+#  commands to execute (from `Makefile', line 91):
+	@echo $(COLOR_GREEN) "Compiling...\t" $(COLOR_RESET) $(COLOR_YELLOW) $< $(COLOR_BLUE) $(LINE_CLEAR) $(COLOR_RESET)
+	@$(CC) $(CFLAG) -c $(INCLUDES) -I$(MLX_DIR) $< -o $@
+	
+
+cub3d: lib/libft/libft.a src/init_info.o src/main.o src/print_err.o src/safety_free.o src/test_util.o src/key_event.o src/key_utils.o src/set_rinfo.o src/draw.o src/ray.o src/texture.o src/parser/check_arg.o src/parser/check_splitted.o src/parser/count_element.o src/parser/parser_list_util.o src/parser/parser_util.o src/parser/parser.o src/parser/set_color.o src/parser/set_element.o src/parser/set_texture.o src/parser/validate_file.o src/parser/validate_map_util.o src/parser/validate_map.o src/mlx_logic/exit_hook.o src/mlx_logic/init_mlx.o
+#  Implicit rule search has not been done.
+#  Last modified 2022-07-01 10:35:00
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+#  commands to execute (from `Makefile', line 83):
+	@$(MAKE) -s -C $(GNL_DIR) all
+	@echo $(COLOR_GREEN) "Compile 'libgnl.a' completed!" $(COLOR_RESET)
+	@$(MAKE) -s -C $(MLX_DIR) all
+	@echo $(COLOR_GREEN) "Compile 'libmlx.a' completed!" $(COLOR_RESET)
+	@$(CC) $(CFLAG) $(LIBRARIES) -I$(LIBFT_DIR) -I$(GNL_DIR) -I$(INC_DIR) -I$(MLX_DIR) $(OBJS) -o $(NAME) -lft -lgnl $(MLX_FLAG) $(SAN_FLAG)
+	@echo $(COLOR_GREEN) "Compile $(NAME) completed!" $(COLOR_RESET)
+	
+
+src/parser/validate_map_util.o: src/parser/validate_map_util.c
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: `src/parser/validate_map_util'
+#  Last modified 2022-07-01 10:34:57
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+#  commands to execute (from `Makefile', line 91):
+	@echo $(COLOR_GREEN) "Compiling...\t" $(COLOR_RESET) $(COLOR_YELLOW) $< $(COLOR_BLUE) $(LINE_CLEAR) $(COLOR_RESET)
+	@$(CC) $(CFLAG) -c $(INCLUDES) -I$(MLX_DIR) $< -o $@
+	
+
+src/set_rinfo.o: src/set_rinfo.c
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: `src/set_rinfo'
+#  Last modified 2022-07-01 10:34:56
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+#  commands to execute (from `Makefile', line 91):
+	@echo $(COLOR_GREEN) "Compiling...\t" $(COLOR_RESET) $(COLOR_YELLOW) $< $(COLOR_BLUE) $(LINE_CLEAR) $(COLOR_RESET)
+	@$(CC) $(CFLAG) -c $(INCLUDES) -I$(MLX_DIR) $< -o $@
+	
+
+# Not a target:
+src/parser/parser_list_util.c:
+#  Implicit rule search has been done.
+#  Last modified 2022-07-01 10:28:52
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+
+# Not a target:
+.SUFFIXES:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+src/draw.c:
+#  Implicit rule search has been done.
+#  Last modified 2022-07-01 10:28:52
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+
+# Not a target:
+src/safety_free.c:
+#  Implicit rule search has been done.
+#  Last modified 2022-07-01 10:28:52
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+
+# Not a target:
+Makefile:
+#  Implicit rule search has been done.
+#  Last modified 2022-07-01 10:34:46
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+
+# Not a target:
+src/parser/check_arg.c:
+#  Implicit rule search has been done.
+#  Last modified 2022-07-01 10:28:52
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+
+src/parser/parser_util.o: src/parser/parser_util.c
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: `src/parser/parser_util'
+#  Last modified 2022-07-01 10:34:57
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+#  commands to execute (from `Makefile', line 91):
+	@echo $(COLOR_GREEN) "Compiling...\t" $(COLOR_RESET) $(COLOR_YELLOW) $< $(COLOR_BLUE) $(LINE_CLEAR) $(COLOR_RESET)
+ 
+	@$(CC) $(CFLAG) -c $(INCLUDES) -I$(MLX_DIR) $< -o $@
+	
+
+debug:
+#  Phony target (prerequisite of .PHONY).
+#  Implicit rule search has not been done.
+#  File does not exist.
+#  File has not been updated.
+
+# Not a target:
+src/init_info.c:
+#  Implicit rule search has been done.
+#  Last modified 2022-07-01 10:28:52
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+
+# Not a target:
+src/parser/set_element.c:
+#  Implicit rule search has been done.
+#  Last modified 2022-07-01 10:28:52
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+
+# Not a target:
+src/key_event.c:
+#  Implicit rule search has been done.
+#  Last modified 2022-07-01 10:28:52
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+
+# Not a target:
+src/parser/count_element.c:
+#  Implicit rule search has been done.
+#  Last modified 2022-07-01 10:28:52
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+
+src/ray.o: src/ray.c
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: `src/ray'
+#  Last modified 2022-07-01 10:34:56
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+#  commands to execute (from `Makefile', line 91):
+	@echo $(COLOR_GREEN) "Compiling...\t" $(COLOR_RESET) $(COLOR_YELLOW) $< $(COLOR_BLUE) $(LINE_CLEAR) $(COLOR_RESET)
+	@$(CC) $(CFLAG) -c $(INCLUDES) -I$(MLX_DIR) $< -o $@
+	
+
+src/parser/set_texture.o: src/parser/set_texture.c
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: `src/parser/set_texture'
+#  Last modified 2022-07-01 10:34:57
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+#  commands to execute (from `Makefile', line 91):
+	@echo $(COLOR_GREEN) "Compiling...\t" $(COLOR_RESET) $(COLOR_YELLOW) $< $(COLOR_BLUE) $(LINE_CLEAR) $(COLOR_RESET)
+	@$(CC) $(CFLAG) -c $(INCLUDES) -I$(MLX_DIR) $< -o $@
+	
+
+src/parser/validate_map.o: src/parser/validate_map.c
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: `src/parser/validate_map'
+#  Last modified 2022-07-01 10:34:57
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+#  commands to execute (from `Makefile', line 91):
+	@echo $(COLOR_GREEN) "Compiling...\t" $(COLOR_RESET) $(COLOR_YELLOW) $< $(COLOR_BLUE) $(LINE_CLEAR) $(COLOR_RESET)
+	@$(CC) $(CFLAG) -c $(INCLUDES) -I$(MLX_DIR) $< -o $@
+	
+
+src/parser/validate_file.o: src/parser/validate_file.c
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: `src/parser/validate_file'
+#  Last modified 2022-07-01 10:34:57
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+#  commands to execute (from `Makefile', line 91):
+	@echo $(COLOR_GREEN) "Compiling...\t" $(COLOR_RESET) $(COLOR_YELLOW) $< $(COLOR_BLUE) $(LINE_CLEAR) $(COLOR_RESET)
+	@$(CC) $(CFLAG) -c $(INCLUDES) -I$(MLX_DIR) $< -o $@
+	
+
+src/print_err.o: src/print_err.c
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: `src/print_err'
+#  Last modified 2022-07-01 10:34:56
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+#  commands to execute (from `Makefile', line 91):
+	@echo $(COLOR_GREEN) "Compiling...\t" $(COLOR_RESET) $(COLOR_YELLOW) $< $(COLOR_BLUE) $(LINE_CLEAR) $(COLOR_RESET)
+	@$(CC) $(CFLAG) -c $(INCLUDES) -I$(MLX_DIR) $< -o $@
+	
+
+fclean:
+#  Phony target (prerequisite of .PHONY).
+#  Implicit rule search has not been done.
+#  File does not exist.
+#  File has not been updated.
+#  commands to execute (from `Makefile', line 109):
+	@$(MAKE) -s -C $(LIBFT_DIR) fclean
+	@$(MAKE) -s -C $(GNL_DIR) fclean
+	@$(MAKE) -s -C $(MLX_DIR) clean
+	@rm -rf $(OBJS)
+	@rm -rf $(NAME)
+	@echo $(COLOR_RED) "Program '$(NAME)' has removed!" $(COLOR_RESET)
+	
+
+src/parser/parser.o: src/parser/parser.c
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: `src/parser/parser'
+#  Last modified 2022-07-01 10:34:57
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+#  commands to execute (from `Makefile', line 91):
+	@echo $(COLOR_GREEN) "Compiling...\t" $(COLOR_RESET) $(COLOR_YELLOW) $< $(COLOR_BLUE) $(LINE_CLEAR) $(COLOR_RESET)
+	@$(CC) $(CFLAG) -c $(INCLUDES) -I$(MLX_DIR) $< -o $@
+	
+
+# Not a target:
+src/main.c:
+#  Implicit rule search has been done.
+#  Last modified 2022-07-01 10:28:52
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+
+# Not a target:
+src/test_util.c:
+#  Implicit rule search has been done.
+#  Last modified 2022-07-01 10:28:52
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+
+# Not a target:
+src/parser/validate_map_util.c:
+#  Implicit rule search has been done.
+#  Last modified 2022-07-01 10:28:52
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+
+src/texture.o: src/texture.c
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: `src/texture'
+#  Last modified 2022-07-01 10:34:56
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+#  commands to execute (from `Makefile', line 91):
+	@echo $(COLOR_GREEN) "Compiling...\t" $(COLOR_RESET) $(COLOR_YELLOW) $< $(COLOR_BLUE) $(LINE_CLEAR) $(COLOR_RESET)
+	@$(CC) $(CFLAG) -c $(INCLUDES) -I$(MLX_DIR) $< -o $@
+	
+
+# Not a target:
+src/set_rinfo.c:
+#  Implicit rule search has been done.
+#  Last modified 2022-07-01 10:28:52
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+
+# Not a target:
+.DEFAULT:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+src/parser/check_splitted.o: src/parser/check_splitted.c
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: `src/parser/check_splitted'
+#  Last modified 2022-07-01 10:34:56
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+#  commands to execute (from `Makefile', line 91):
+	@echo $(COLOR_GREEN) "Compiling...\t" $(COLOR_RESET) $(COLOR_YELLOW) $< $(COLOR_BLUE) $(LINE_CLEAR) $(COLOR_RESET)
+	@$(CC) $(CFLAG) -c $(INCLUDES) -I$(MLX_DIR) $< -o $@
+	
+
+re: fclean all
+#  Phony target (prerequisite of .PHONY).
+#  Implicit rule search has not been done.
+#  File does not exist.
+#  File has not been updated.
+
+clean:
+#  Phony target (prerequisite of .PHONY).
+#  Implicit rule search has not been done.
+#  File does not exist.
+#  File has not been updated.
+#  commands to execute (from `Makefile', line 103):
+	@$(MAKE) -s -C $(LIBFT_DIR) clean
+	@$(MAKE) -s -C $(GNL_DIR) clean
+	@rm -rf $(OBJS)
+	@echo $(COLOR_RED) "'$(NAME)'s objective files are removed!" $(COLOR_RESET)
+	
+
+src/parser/set_color.o: src/parser/set_color.c
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: `src/parser/set_color'
+#  Last modified 2022-07-01 10:34:57
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+#  commands to execute (from `Makefile', line 91):
+	@echo $(COLOR_GREEN) "Compiling...\t" $(COLOR_RESET) $(COLOR_YELLOW) $< $(COLOR_BLUE) $(LINE_CLEAR) $(COLOR_RESET)
+	@$(CC) $(CFLAG) -c $(INCLUDES) -I$(MLX_DIR) $< -o $@
+	
+
+# Not a target:
+src/ray.c:
+#  Implicit rule search has been done.
+#  Last modified 2022-07-01 10:28:52
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+
+# Not a target:
+ 
+src/parser/set_texture.c:
+#  Implicit rule search has been done.
+#  Last modified 2022-07-01 10:28:52
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+
+src/mlx_logic/exit_hook.o: src/mlx_logic/exit_hook.c
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: `src/mlx_logic/exit_hook'
+#  Last modified 2022-07-01 10:34:57
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+#  commands to execute (from `Makefile', line 91):
+	@echo $(COLOR_GREEN) "Compiling...\t" $(COLOR_RESET) $(COLOR_YELLOW) $< $(COLOR_BLUE) $(LINE_CLEAR) $(COLOR_RESET)
+	@$(CC) $(CFLAG) -c $(INCLUDES) -I$(MLX_DIR) $< -o $@
+	
+
+# Not a target:
+src/parser/parser_util.c:
+#  Implicit rule search has been done.
+#  Last modified 2022-07-01 10:28:52
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+
+# Not a target:
+src/parser/validate_map.c:
+#  Implicit rule search has been done.
+#  Last modified 2022-07-01 10:28:52
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+
+# Not a target:
+src/parser/validate_file.c:
+#  Implicit rule search has been done.
+#  Last modified 2022-07-01 10:28:52
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+
+src/mlx_logic/init_mlx.o: src/mlx_logic/init_mlx.c
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: `src/mlx_logic/init_mlx'
+#  Last modified 2022-07-01 10:34:57
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+#  commands to execute (from `Makefile', line 91):
+	@echo $(COLOR_GREEN) "Compiling...\t" $(COLOR_RESET) $(COLOR_YELLOW) $< $(COLOR_BLUE) $(LINE_CLEAR) $(COLOR_RESET)
+	@$(CC) $(CFLAG) -c $(INCLUDES) -I$(MLX_DIR) $< -o $@
+	
+
+# Not a target:
+src/print_err.c:
+#  Implicit rule search has been done.
+#  Last modified 2022-07-01 10:28:52
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+
+# Not a target:
+src/parser/parser.c:
+#  Implicit rule search has been done.
+#  Last modified 2022-07-01 10:28:52
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+
+lib/libft/libft.a:
+#  Implicit rule search has not been done.
+#  Last modified 2022-07-01 10:34:56
+#  File has been updated.
+#  Successfully updated.
+#  commands to execute (from `Makefile', line 95):
+	@$(MAKE) -s -C $(LIBFT_DIR) all
+	@echo $(COLOR_GREEN) "Compile 'libft.a' completed!" $(COLOR_RESET)
+	
+
+src/parser/parser_list_util.o: src/parser/parser_list_util.c
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: `src/parser/parser_list_util'
+#  Last modified 2022-07-01 10:34:57
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+#  commands to execute (from `Makefile', line 91):
+	@echo $(COLOR_GREEN) "Compiling...\t" $(COLOR_RESET) $(COLOR_YELLOW) $< $(COLOR_BLUE) $(LINE_CLEAR) $(COLOR_RESET)
+	@$(CC) $(CFLAG) -c $(INCLUDES) -I$(MLX_DIR) $< -o $@
+	
+
+src/draw.o: src/draw.c
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: `src/draw'
+#  Last modified 2022-07-01 10:34:56
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+#  commands to execute (from `Makefile', line 91):
+	@echo $(COLOR_GREEN) "Compiling...\t" $(COLOR_RESET) $(COLOR_YELLOW) $< $(COLOR_BLUE) $(LINE_CLEAR) $(COLOR_RESET)
+	@$(CC) $(CFLAG) -c $(INCLUDES) -I$(MLX_DIR) $< -o $@
+	
+
+src/safety_free.o: src/safety_free.c
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: `src/safety_free'
+#  Last modified 2022-07-01 10:34:56
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+#  commands to execute (from `Makefile', line 91):
+	@echo $(COLOR_GREEN) "Compiling...\t" $(COLOR_RESET) $(COLOR_YELLOW) $< $(COLOR_BLUE) $(LINE_CLEAR) $(COLOR_RESET)
+	@$(CC) $(CFLAG) -c $(INCLUDES) -I$(MLX_DIR) $< -o $@
+	
+
+# Not a target:
+src/texture.c:
+#  Implicit rule search has been done.
+#  Last modified 2022-07-01 10:28:52
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+
+lib/get_next_line/libgnl.a:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  commands to execute (from `Makefile', line 99):
+	@$(MAKE) -s -C $(GNL_DIR) all
+	@echo $(COLOR_GREEN) "Compile 'libgnl.a' completed!" $(COLOR_RESET)
+	
+
+src/key_utils.o: src/key_utils.c
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: `src/key_utils'
+#  Last modified 2022-07-01 10:34:56
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+#  commands to execute (from `Makefile', line 91):
+	@echo $(COLOR_GREEN) "Compiling...\t" $(COLOR_RESET) $(COLOR_YELLOW) $< $(COLOR_BLUE) $(LINE_CLEAR) $(COLOR_RESET)
+	@$(CC) $(CFLAG) -c $(INCLUDES) -I$(MLX_DIR) $< -o $@
+	
+
+src/parser/check_arg.o: src/parser/check_arg.c
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: `src/parser/check_arg'
+#  Last modified 2022-07-01 10:34:56
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+#  commands to execute (from `Makefile', line 91):
+	@echo $(COLOR_GREEN) "Compiling...\t" $(COLOR_RESET) $(COLOR_YELLOW) $< $(COLOR_BLUE) $(LINE_CLEAR) $(COLOR_RESET)
+	@$(CC) $(CFLAG) -c $(INCLUDES) -I$(MLX_DIR) $< -o $@
+	
+
+src/init_info.o: src/init_info.c
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: `src/init_info'
+#  Last modified 2022-07-01 10:34:56
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+#  commands to execute (from `Makefile', line 91):
+	@echo $(COLOR_GREEN) "Compiling...\t" $(COLOR_RESET) $(COLOR_YELLOW) $< $(COLOR_BLUE) $(LINE_CLEAR) $(COLOR_RESET)
+	@$(CC) $(CFLAG) -c $(INCLUDES) -I$(MLX_DIR) $< -o $@
+	
+
+src/parser/set_element.o: src/parser/set_element.c
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: `src/parser/set_element'
+#  Last modified 2022-07-01 10:34:57
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+#  commands to execute (from `Makefile', line 91):
+	@echo $(COLOR_GREEN) "Compiling...\t" $(COLOR_RESET) $(COLOR_YELLOW) $< $(COLOR_BLUE) $(LINE_CLEAR) $(COLOR_RESET)
+	@$(CC) $(CFLAG) -c $(INCLUDES) -I$(MLX_DIR) $< -o $@
+	
+
+src/key_event.o: src/key_event.c
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: `src/key_event'
+#  Last modified 2022-07-01 10:34:56
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+#  commands to execute (from `Makefile', line 91):
+	@echo $(COLOR_GREEN) "Compiling...\t" $(COLOR_RESET) $(COLOR_YELLOW) $< $(COLOR_BLUE) $(LINE_CLEAR) $(COLOR_RESET)
+	@$(CC) $(CFLAG) -c $(INCLUDES) -I$(MLX_DIR) $< -o $@
+	
+
+# Not a target:
+src/parser/check_splitted.c:
+#  Implicit rule search has been done.
+#  Last modified 2022-07-01 10:28:52
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+
+src/parser/count_element.o: src/parser/count_element.c
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: `src/parser/count_element'
+#  Last modified 2022-07-01 10:34:56
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+#  commands to execute (from `Makefile', line 91):
+ 
+	@echo $(COLOR_GREEN) "Compiling...\t" $(COLOR_RESET) $(COLOR_YELLOW) $< $(COLOR_BLUE) $(LINE_CLEAR) $(COLOR_RESET)
+	@$(CC) $(CFLAG) -c $(INCLUDES) -I$(MLX_DIR) $< -o $@
+	
+
+# files hash-table stats:
+# Load=62/1024=6%, Rehash=0, Collisions=9/184=5%
+# VPATH Search Paths
+
+# No `vpath' search paths.
+
+# No general (`VPATH' variable) search path.
+
+# # of strings in strcache: 1
+# # of strcache buffers: 1
+# strcache size: total = 4096 / max = 4096 / min = 4096 / avg = 4096
+# strcache free: total = 4087 / max = 4087 / min = 4087 / avg = 4087
+
+# Finished Make data base on Fri Jul  1 10:35:49 2022
+
+ 

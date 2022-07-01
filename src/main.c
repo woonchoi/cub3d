@@ -6,7 +6,7 @@
 /*   By: jasong <jasong@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/30 13:53:06 by jasong            #+#    #+#             */
-/*   Updated: 2022/06/30 15:58:55 by jasong           ###   ########.fr       */
+/*   Updated: 2022/07/01 11:00:48 by jasong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,11 +57,18 @@ void	raycasting(t_info *info)
 
 int	render_frame(t_info *info)
 {
-	key_update(info, &info->rinfo);
-	draw_floor(info);
-	draw_ceiling(info);
-	raycasting(info);
-	mlx_put_image_to_window(info->mlx_ptr, info->win_ptr, info->img.img, 0, 0);
+	info->frame++;
+	if (info->frame == 60)
+		info->frame = 0;
+	cal_frame(info);
+	if (info->frame == 0)
+	{
+		key_update(info, &info->rinfo);
+		draw_floor(info);
+		draw_ceiling(info);
+		raycasting(info);
+		mlx_put_image_to_window(info->mlx_ptr, info->win_ptr, info->img.img, 0, 0);
+	}
 	return (0);
 }
 
@@ -71,6 +78,7 @@ int	main(int argc, char **argv)
 
 	check_valid_arg(argc, argv);
 	init_info(&info, argv[1]);
+	mlx_do_key_autorepeatoff(info.mlx_ptr);
 	mlx_hook(info.win_ptr, 17, 0, &exit_hook, &info);
 	mlx_hook(info.win_ptr, 2, 1L << 0, &key_press, &info);
 	mlx_hook(info.win_ptr, 3, 1L << 1, &key_release, &info);

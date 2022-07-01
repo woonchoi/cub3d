@@ -6,7 +6,7 @@
 #    By: jasong <jasong@student.42seoul.kr>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/02/18 00:17:54 by jasong            #+#    #+#              #
-#    Updated: 2022/06/30 16:03:40 by jasong           ###   ########.fr        #
+#    Updated: 2022/07/01 10:34:46 by jasong           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -31,7 +31,6 @@ GNL = $(GNL_DIR)libgnl.a
 
 INC_DIR = ./includes/
 MLX_DIR = ./mlx/
-MLX_LINUX_DIR = ./mlxlinux/
 
 SRC_DIR = ./src/
 PARSER_DIR = $(SRC_DIR)parser/
@@ -42,7 +41,6 @@ LIBRARIES = -L$(LIBFT_DIR) -L$(GNL_DIR)
 INCLUDES = -I$(LIBFT_DIR) -I$(GNL_DIR) -I$(INC_DIR) -I$(MLX_LINUX_DIR)
 
 MLX_FLAG = -Lmlx -lmlx -framework OpenGL -framework AppKit
-MLX_FLAG_LINUX = -L ./mlxlinux -lmlx -lXext -lX11
 
 MAIN_SRCS = init_info.c \
 			main.c \
@@ -81,9 +79,12 @@ OBJS = $(SRCS:.c=.o)
 
 all : $(NAME)
 
-$(NAME): $(LIBFT) $(GNL) $(MLX_LINUX) $(OBJS)
-	@echo $(COLOR_GREEN) "Compile object files completed!" $(COLOR_RESET)
-	@$(CC) $(CFLAG) $(LIBRARIES) $(INCLUDES) $(OBJS) -o $(NAME) -lft -lgnl $(MLX_FLAG_LINUX) $(SAN_FLAG)
+$(NAME): $(LIBFT) $(OBJS)
+	@$(MAKE) -s -C $(GNL_DIR) all
+	@echo $(COLOR_GREEN) "Compile 'libgnl.a' completed!" $(COLOR_RESET)
+	@$(MAKE) -s -C $(MLX_DIR) all
+	@echo $(COLOR_GREEN) "Compile 'libmlx.a' completed!" $(COLOR_RESET)
+	@$(CC) $(CFLAG) $(LIBRARIES) -I$(LIBFT_DIR) -I$(GNL_DIR) -I$(INC_DIR) -I$(MLX_DIR) $(OBJS) -o $(NAME) -lft -lgnl $(MLX_FLAG) $(SAN_FLAG)
 	@echo $(COLOR_GREEN) "Compile $(NAME) completed!" $(COLOR_RESET)
 
 %.o: %.c
@@ -98,10 +99,6 @@ $(GNL):
 	@$(MAKE) -s -C $(GNL_DIR) all
 	@echo $(COLOR_GREEN) "Compile 'libgnl.a' completed!" $(COLOR_RESET)
 
-$(MLX_LINUX):
-	@$(MAKE) -s -C $(MLX_LINUX_DIR) all
-	@echo $(COLOR_GREEN) "Compile 'libmlx.a' completed!" $(COLOR_RESET)
-
 clean:
 	@$(MAKE) -s -C $(LIBFT_DIR) clean
 	@$(MAKE) -s -C $(GNL_DIR) clean
@@ -115,14 +112,6 @@ fclean:
 	@rm -rf $(OBJS)
 	@rm -rf $(NAME)
 	@echo $(COLOR_RED) "Program '$(NAME)' has removed!" $(COLOR_RESET)
-
-jasong: $(LIBFT) $(OBJS)
-	@$(MAKE) -s -C $(GNL_DIR) all
-	@echo $(COLOR_GREEN) "Compile 'libgnl.a' completed!" $(COLOR_RESET)
-	@$(MAKE) -s -C $(MLX_DIR) all
-	@echo $(COLOR_GREEN) "Compile 'libmlx.a' completed!" $(COLOR_RESET)
-	@$(CC) $(CFLAG) $(LIBRARIES) -I$(LIBFT_DIR) -I$(GNL_DIR) -I$(INC_DIR) -I$(MLX_DIR) $(OBJS) -o $(NAME) -lft -lgnl $(MLX_FLAG) $(SAN_FLAG)
-	@echo $(COLOR_GREEN) "Compile $(NAME) completed!" $(COLOR_RESET)
 
 re : fclean all
 

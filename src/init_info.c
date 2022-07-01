@@ -6,7 +6,7 @@
 /*   By: jasong <jasong@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/30 13:53:01 by jasong            #+#    #+#             */
-/*   Updated: 2022/06/30 14:40:33 by jasong           ###   ########.fr       */
+/*   Updated: 2022/07/01 10:50:09 by jasong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,4 +69,5 @@ void	init_info(t_info *info, char *path)
 	init_win(info);
 	init_screen_img(info);
 	init_keys(info);
+	info->frame = 0;
 }
