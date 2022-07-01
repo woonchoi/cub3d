@@ -6,7 +6,7 @@
 /*   By: jasong <jasong@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/30 13:53:06 by jasong            #+#    #+#             */
-/*   Updated: 2022/07/01 11:00:48 by jasong           ###   ########.fr       */
+/*   Updated: 2022/07/01 11:02:22 by jasong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,6 @@ int	render_frame(t_info *info)
 	info->frame++;
 	if (info->frame == 60)
 		info->frame = 0;
-	cal_frame(info);
 	if (info->frame == 0)
 	{
 		key_update(info, &info->rinfo);
