@@ -6,7 +6,7 @@
 /*   By: jasong <jasong@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/30 14:29:12 by jasong            #+#    #+#             */
-/*   Updated: 2022/07/01 10:49:39 by jasong           ###   ########.fr       */
+/*   Updated: 2022/07/01 12:10:55 by jasong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,8 +72,6 @@ typedef struct s_raycast_util
 	double	dir_y;
 	double	plane_x;
 	double	plane_y;
-	double	move_speed;
-	double	rotate_speed;
 }	t_raycast_util;
 
 typedef struct s_screen_size
@@ -88,6 +86,8 @@ typedef struct s_keys
 	int	s;
 	int	d;
 	int	w;
+	int	left_arrow;
+	int	right_arrow;
 }	t_keys;
 
 typedef struct s_info

@@ -6,14 +6,13 @@
 /*   By: jasong <jasong@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/30 13:53:01 by jasong            #+#    #+#             */
-/*   Updated: 2022/07/01 10:50:09 by jasong           ###   ########.fr       */
+/*   Updated: 2022/07/01 12:16:08 by jasong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "parser.h"
 #include "mlx_logic.h"
 #include "cub.h"
-#include <stdio.h>
 
 void	init_map(t_info *info, char *path)
 {
@@ -24,7 +23,6 @@ void	init_map(t_info *info, char *path)
 		open_err(path);
 	parse_map(info, fd);
 	free_parse_list(info);
-	print_doublearray_map(info);
 	validate_map(info);
 }
 
@@ -58,8 +56,8 @@ void	init_dir_texture(t_info *info)
 void	init_info(t_info *info, char *path)
 {
 	info->head = NULL;
-	info->screen.width = 1600;
-	info->screen.height = 900;
+	info->screen.width = 1920;
+	info->screen.height = 1080;
 	info->mlx_ptr = mlx_init();
 	if (!info->mlx_ptr)
 		print_err(MLX_ERR);
@@ -69,5 +67,5 @@ void	init_info(t_info *info, char *path)
 	init_win(info);
 	init_screen_img(info);
 	init_keys(info);
-	info->frame = 0;
+	info->frame = 59;
 }

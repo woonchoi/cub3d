@@ -6,7 +6,7 @@
 #    By: jasong <jasong@student.42seoul.kr>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/02/18 00:17:54 by jasong            #+#    #+#              #
-#    Updated: 2022/07/01 10:34:46 by jasong           ###   ########.fr        #
+#    Updated: 2022/07/01 11:53:30 by jasong           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,7 +24,7 @@ LINE_CLEAR = "\x1b[1A\x1b[M"
 CC = clang
 CFLAG = -Wall -Wextra -Werror
 SAN_FLAG = -g3 -fsanitize=address
-LIBFT_DIR = ./lib/libft/
+LIBFT_DIR = ./lib/libft//
 LIBFT = $(LIBFT_DIR)libft.a
 GNL_DIR = ./lib/get_next_line/
 GNL = $(GNL_DIR)libgnl.a
@@ -46,9 +46,9 @@ MAIN_SRCS = init_info.c \
 			main.c \
 			print_err.c \
 			safety_free.c \
-			test_util.c \
 			key_event.c \
-			key_utils.c \
+			move_utils.c \
+			rotate_utils.c \
 			set_rinfo.c \
 			draw.c \
 			ray.c \
@@ -84,7 +84,7 @@ $(NAME): $(LIBFT) $(OBJS)
 	@echo $(COLOR_GREEN) "Compile 'libgnl.a' completed!" $(COLOR_RESET)
 	@$(MAKE) -s -C $(MLX_DIR) all
 	@echo $(COLOR_GREEN) "Compile 'libmlx.a' completed!" $(COLOR_RESET)
-	@$(CC) $(CFLAG) $(LIBRARIES) -I$(LIBFT_DIR) -I$(GNL_DIR) -I$(INC_DIR) -I$(MLX_DIR) $(OBJS) -o $(NAME) -lft -lgnl $(MLX_FLAG) $(SAN_FLAG)
+	@$(CC) $(CFLAG) $(LIBRARIES) -I$(LIBFT_DIR) -I$(GNL_DIR) -I$(INC_DIR) -I$(MLX_DIR) $(OBJS) -o $(NAME) -lft -lgnl $(MLX_FLAG)
 	@echo $(COLOR_GREEN) "Compile $(NAME) completed!" $(COLOR_RESET)
 
 %.o: %.c

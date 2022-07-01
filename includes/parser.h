@@ -6,14 +6,12 @@
 /*   By: jasong <jasong@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/30 14:29:08 by jasong            #+#    #+#             */
-/*   Updated: 2022/06/30 14:39:29 by jasong           ###   ########.fr       */
+/*   Updated: 2022/07/01 11:42:47 by jasong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PARSER_H
 # define PARSER_H
-
-# include <stdio.h>
 
 # include <fcntl.h>
 # include <stdlib.h>

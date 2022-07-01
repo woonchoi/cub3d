@@ -1,6 +1,57 @@
 make --dry-run --keep-going --print-directory
 make: Entering directory `/Users/jasong/push'
-make: Nothing to be done for `all'.
+echo "\x1b[32m" "Compiling...\t" "\x1b[0m" "\x1b[33m" src/init_info.c "\x1b[34m" "\x1b[1A\x1b[M" "\x1b[0m"
+clang -Wall -Wextra -Werror -c -I./lib/libft// -I./lib/get_next_line/ -I./includes/ -I -I./mlx/ src/init_info.c -o src/init_info.o
  
+echo "\x1b[32m" "Compiling...\t" "\x1b[0m" "\x1b[33m" src/main.c "\x1b[34m" "\x1b[1A\x1b[M" "\x1b[0m"
+clang -Wall -Wextra -Werror -c -I./lib/libft// -I./lib/get_next_line/ -I./includes/ -I -I./mlx/ src/main.c -o src/main.o
+echo "\x1b[32m" "Compiling...\t" "\x1b[0m" "\x1b[33m" src/print_err.c "\x1b[34m" "\x1b[1A\x1b[M" "\x1b[0m"
+clang -Wall -Wextra -Werror -c -I./lib/libft// -I./lib/get_next_line/ -I./includes/ -I -I./mlx/ src/print_err.c -o src/print_err.o
+echo "\x1b[32m" "Compiling...\t" "\x1b[0m" "\x1b[33m" src/safety_free.c "\x1b[34m" "\x1b[1A\x1b[M" "\x1b[0m"
+clang -Wall -Wextra -Werror -c -I./lib/libft// -I./lib/get_next_line/ -I./includes/ -I -I./mlx/ src/safety_free.c -o src/safety_free.o
+echo "\x1b[32m" "Compiling...\t" "\x1b[0m" "\x1b[33m" src/key_event.c "\x1b[34m" "\x1b[1A\x1b[M" "\x1b[0m"
+clang -Wall -Wextra -Werror -c -I./lib/libft// -I./lib/get_next_line/ -I./includes/ -I -I./mlx/ src/key_event.c -o src/key_event.o
+ 
+echo "\x1b[32m" "Compiling...\t" "\x1b[0m" "\x1b[33m" src/move_utils.c "\x1b[34m" "\x1b[1A\x1b[M" "\x1b[0m"
+clang -Wall -Wextra -Werror -c -I./lib/libft// -I./lib/get_next_line/ -I./includes/ -I -I./mlx/ src/move_utils.c -o src/move_utils.o
+echo "\x1b[32m" "Compiling...\t" "\x1b[0m" "\x1b[33m" src/set_rinfo.c "\x1b[34m" "\x1b[1A\x1b[M" "\x1b[0m"
+clang -Wall -Wextra -Werror -c -I./lib/libft// -I./lib/get_next_line/ -I./includes/ -I -I./mlx/ src/set_rinfo.c -o src/set_rinfo.o
+echo "\x1b[32m" "Compiling...\t" "\x1b[0m" "\x1b[33m" src/draw.c "\x1b[34m" "\x1b[1A\x1b[M" "\x1b[0m"
+clang -Wall -Wextra -Werror -c -I./lib/libft// -I./lib/get_next_line/ -I./includes/ -I -I./mlx/ src/draw.c -o src/draw.o
+echo "\x1b[32m" "Compiling...\t" "\x1b[0m" "\x1b[33m" src/ray.c "\x1b[34m" "\x1b[1A\x1b[M" "\x1b[0m"
+clang -Wall -Wextra -Werror -c -I./lib/libft// -I./lib/get_next_line/ -I./includes/ -I -I./mlx/ src/ray.c -o src/ray.o
+echo "\x1b[32m" "Compiling...\t" "\x1b[0m" "\x1b[33m" src/texture.c "\x1b[34m" "\x1b[1A\x1b[M" "\x1b[0m"
+clang -Wall -Wextra -Werror -c -I./lib/libft// -I./lib/get_next_line/ -I./includes/ -I -I./mlx/ src/texture.c -o src/texture.o
+ 
+make: *** No rule to make target `src/rotate_utils.o', needed by `cub3d'.
+
+echo "\x1b[32m" "Compiling...\t" "\x1b[0m" "\x1b[33m" src/parser/check_arg.c "\x1b[34m" "\x1b[1A\x1b[M" "\x1b[0m"
+clang -Wall -Wextra -Werror -c -I./lib/libft// -I./lib/get_next_line/ -I./includes/ -I -I./mlx/ src/parser/check_arg.c -o src/parser/check_arg.o
+echo "\x1b[32m" "Compiling...\t" "\x1b[0m" "\x1b[33m" src/parser/check_splitted.c "\x1b[34m" "\x1b[1A\x1b[M" "\x1b[0m"
+clang -Wall -Wextra -Werror -c -I./lib/libft// -I./lib/get_next_line/ -I./includes/ -I -I./mlx/ src/parser/check_splitted.c -o src/parser/check_splitted.o
+echo "\x1b[32m" "Compiling...\t" "\x1b[0m" "\x1b[33m" src/parser/count_element.c "\x1b[34m" "\x1b[1A\x1b[M" "\x1b[0m"
+clang -Wall -Wextra -Werror -c -I./lib/libft// -I./lib/get_next_line/ -I./includes/ -I -I./mlx/ src/parser/count_element.c -o src/parser/count_element.o
+echo "\x1b[32m" "Compiling...\t" "\x1b[0m" "\x1b[33m" src/parser/parser_list_util.c "\x1b[34m" "\x1b[1A\x1b[M" "\x1b[0m"
+clang -Wall -Wextra -Werror -c -I./lib/libft// -I./lib/get_next_line/ -I./includes/ -I -I./mlx/ src/parser/parser_list_util.c -o src/parser/parser_list_util.o
+echo "\x1b[32m" "Compiling...\t" "\x1b[0m" "\x1b[33m" src/parser/parser_util.c "\x1b[34m" "\x1b[1A\x1b[M" "\x1b[0m"
+clang -Wall -Wextra -Werror -c -I./lib/libft// -I./lib/get_next_line/ -I./includes/ -I -I./mlx/ src/parser/parser_util.c -o src/parser/parser_util.o
+echo "\x1b[32m" "Compiling...\t" "\x1b[0m" "\x1b[33m" src/parser/parser.c "\x1b[34m" "\x1b[1A\x1b[M" "\x1b[0m"
+clang -Wall -Wextra -Werror -c -I./lib/libft// -I./lib/get_next_line/ -I./includes/ -I -I./mlx/ src/parser/parser.c -o src/parser/parser.o
+echo "\x1b[32m" "Compiling...\t" "\x1b[0m" "\x1b[33m" src/parser/set_color.c "\x1b[34m" "\x1b[1A\x1b[M" "\x1b[0m"
+clang -Wall -Wextra -Werror -c -I./lib/libft// -I./lib/get_next_line/ -I./includes/ -I -I./mlx/ src/parser/set_color.c -o src/parser/set_color.o
+echo "\x1b[32m" "Compiling...\t" "\x1b[0m" "\x1b[33m" src/parser/set_element.c "\x1b[34m" "\x1b[1A\x1b[M" "\x1b[0m"
+clang -Wall -Wextra -Werror -c -I./lib/libft// -I./lib/get_next_line/ -I./includes/ -I -I./mlx/ src/parser/set_element.c -o src/parser/set_element.o
+echo "\x1b[32m" "Compiling...\t" "\x1b[0m" "\x1b[33m" src/parser/set_texture.c "\x1b[34m" "\x1b[1A\x1b[M" "\x1b[0m"
+clang -Wall -Wextra -Werror -c -I./lib/libft// -I./lib/get_next_line/ -I./includes/ -I -I./mlx/ src/parser/set_texture.c -o src/parser/set_texture.o
+echo "\x1b[32m" "Compiling...\t" "\x1b[0m" "\x1b[33m" src/parser/validate_file.c "\x1b[34m" "\x1b[1A\x1b[M" "\x1b[0m"
+clang -Wall -Wextra -Werror -c -I./lib/libft// -I./lib/get_next_line/ -I./includes/ -I -I./mlx/ src/parser/validate_file.c -o src/parser/validate_file.o
+echo "\x1b[32m" "Compiling...\t" "\x1b[0m" "\x1b[33m" src/parser/validate_map_util.c "\x1b[34m" "\x1b[1A\x1b[M" "\x1b[0m"
+clang -Wall -Wextra -Werror -c -I./lib/libft// -I./lib/get_next_line/ -I./includes/ -I -I./mlx/ src/parser/validate_map_util.c -o src/parser/validate_map_util.o
+echo "\x1b[32m" "Compiling...\t" "\x1b[0m" "\x1b[33m" src/parser/validate_map.c "\x1b[34m" "\x1b[1A\x1b[M" "\x1b[0m"
+clang -Wall -Wextra -Werror -c -I./lib/libft// -I./lib/get_next_line/ -I./includes/ -I -I./mlx/ src/parser/validate_map.c -o src/parser/validate_map.o
+echo "\x1b[32m" "Compiling...\t" "\x1b[0m" "\x1b[33m" src/mlx_logic/exit_hook.c "\x1b[34m" "\x1b[1A\x1b[M" "\x1b[0m"
+clang -Wall -Wextra -Werror -c -I./lib/libft// -I./lib/get_next_line/ -I./includes/ -I -I./mlx/ src/mlx_logic/exit_hook.c -o src/mlx_logic/exit_hook.o
+echo "\x1b[32m" "Compiling...\t" "\x1b[0m" "\x1b[33m" src/mlx_logic/init_mlx.c "\x1b[34m" "\x1b[1A\x1b[M" "\x1b[0m"
+clang -Wall -Wextra -Werror -c -I./lib/libft// -I./lib/get_next_line/ -I./includes/ -I -I./mlx/ src/mlx_logic/init_mlx.c -o src/mlx_logic/init_mlx.o
 make: Leaving directory `/Users/jasong/push'
  

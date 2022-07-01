@@ -6,7 +6,7 @@
 /*   By: jasong <jasong@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/30 14:29:00 by jasong            #+#    #+#             */
-/*   Updated: 2022/06/30 14:30:19 by jasong           ###   ########.fr       */
+/*   Updated: 2022/07/01 12:13:51 by jasong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,6 +59,8 @@ typedef enum e_key
 	KEY_D = 2,
 	KEY_W = 13,
 	KEY_ESC = 53,
+	KEY_LEFT = 123,
+	KEY_RIGHT = 124,
 }	t_key;
 
 #endif

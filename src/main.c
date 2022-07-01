@@ -6,12 +6,11 @@
 /*   By: jasong <jasong@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/30 13:53:06 by jasong            #+#    #+#             */
-/*   Updated: 2022/07/01 11:02:22 by jasong           ###   ########.fr       */
+/*   Updated: 2022/07/01 11:41:41 by jasong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub.h"
-#include <stdio.h>
 
 void	check_side(t_info *info, t_raycast *val)
 {
@@ -66,7 +65,8 @@ int	render_frame(t_info *info)
 		draw_floor(info);
 		draw_ceiling(info);
 		raycasting(info);
-		mlx_put_image_to_window(info->mlx_ptr, info->win_ptr, info->img.img, 0, 0);
+		mlx_put_image_to_window(info->mlx_ptr,
+			info->win_ptr, info->img.img, 0, 0);
 	}
 	return (0);
 }

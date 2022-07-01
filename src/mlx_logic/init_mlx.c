@@ -6,12 +6,11 @@
 /*   By: jasong <jasong@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/30 13:52:05 by jasong            #+#    #+#             */
-/*   Updated: 2022/06/30 14:09:40 by jasong           ###   ########.fr       */
+/*   Updated: 2022/07/01 11:41:45 by jasong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "mlx_logic.h"
-#include <stdio.h>
 
 void	init_win(t_info *info)
 {

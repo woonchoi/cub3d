@@ -1,15 +1,25 @@
+F 113 , 113 , 113
+
+C 11 , 2 , 0
+
 NO ./asset/crystal_box.xpm
-SO ./asset/crystal_imac.xpm
+
+
 WE ./asset/crystal_sign.xpm
+
 EA ./asset/crystal.xpm
-F 113,113,113
-C 11,2,62
+
+
+SO ./asset/crystal_imac.xpm
+
+
+
+
+
 
 111111111111111
 100000100010001
 100000101010001
 110010000000101
-100000000000001
-10000000E000001
-100000000000001
-111111111111111
+100000000N00001
+11111111111111
